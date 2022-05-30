@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
 :root{
   --primary-lightBlue: #BFDBF7;
   --primary-blue: #014F86;  
   --primary-darkBlue: #012A4A;
   --secondary-white: #FCFCFC;
-  --secondary-grey: #E0E2E6;
+  --secondary-grey: #EFF0F2;
   --secondary-green: #06D6A0;
 }
 
-body *{
-  border: 1px solid red;
+body {
+  /* border: 1px solid red; */
   background-color: #E0E2E6;
 }
 
@@ -17,16 +19,20 @@ body *{
   grid-template-columns: 1fr,1fr,1fr,1fr;
   grid-auto-rows: minmax(100px,auto);
 }
+
+/* ========Header======== */
 header {
   display:flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 1em 1em 0;
   background-color: var(--primary-blue);
-  color:var(--secondary-white);
+  color: var(--secondary-white);
 }
 
 header>ul{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   width:35%;
   display: flex;
   flex-direction: row;
@@ -34,104 +40,109 @@ header>ul{
  }
 
  #link-myWorkouts{
-   background-color:var(--primary-darkBlue);
+   background-color:var(--secondary-green);
    background-size:125%;
-   border-radius: 25%;
+   border-radius: 5px;
  }
 
-nav{
-  display:inline-block;
-  position: fixed;
-}
+ li a{
+   text-decoration: none;
+   color: var(--secondary-grey);
+ }
 
+ a:visited {
+   color: var(--secondary-grey);
+ }
 
-
+/* ========Main Content======== */
 #aboutSection {
-  position: flex;
   justify-content: center;
-  margin-left: 200px;
+  background-color:var(--secondary-white);
 }
-/* Main content */
 
   article {
     margin:0 auto;
-    background-color: #014F86;
+    background-color:var(--secondary-grey);
     margin-top: 50px;
-    border: 5px #BFDBF7;
-    border-style: ridge;
-    border-radius: 85px;
-    max-width: fit-content;
+    border-radius: 5px;
+    max-width: 885px;
     display: flex; 
-  }
-
-  h1 {
-    color: #BFDBF7;
-    text-decoration: underline;
-    font-size: xx-large;
-  
+    margin-bottom: 50px;
   }
 
   h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     margin-top: 50px;
-    color: black;
+    color:var(--primary-darkBlue);
     font-size: xx-large;
     text-align: center;
   }
 
   #bio {
-    max-width: 550px;
-    background-color: #014F86;
+    max-width: 885px;
+    max-height: 240px;
+    /* background-color: #014F86; */
     border-radius: 35%;
   }
   #name {
-    color: black;
+    color:var(--primary-darkBlue);
     text-decoration: underline;
     font-size: x-large;
     background-color: none;
   }
 
   h3 {
-    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color:var(--primary-darkBlue);
     text-decoration: underline;
     font-size: x-large;
-    background-color: #014F86;
+    /* background-color: #014F86; */
     max-width: fit-content;
     margin-left: 25px;
-    margin-top: 10px;
+    margin-top: 35px;
   }
 
   p {
-    background-color: #014F86;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
     margin-top: 10px;
     margin-bottom: 25px;
     margin-left: 30px;
     margin-right: 10px;
     max-width: 450px;
-    color: darkgray;
+    color:var(--primary-darkBlue);
   }
 
   #headshot{
     float: left;
-    width: 150px;
-    height: 200px;
+    width: 195px;
+    height: 195px;
+    stroke: var(--primary-lightBlue);
     margin: 5px;
-    border-radius: 75%;
+    border-radius: 2px;
+    padding:22px;
   }
 
   #github {
-    background-color: #014F86;
-    color: darkgray;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    /* background-color: #014F86; */
+    color:var(--primary-darkBlue);
     margin-left: 25px;
     font-size: large;
+    text-decoration: none;
   }
 
 
-/* Footer formatting */
+/* ========Footer========  */
 
   footer{
     display: grid;
     grid-template-columns: 1fr,1fr,1fr,1fr;
     grid-auto-rows: minmax(100px,auto);
+    background-color: var(--primary-darkBlue);
   }
   #footer-logo-section{
     grid-column: 1/2;
