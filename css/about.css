@@ -1,12 +1,19 @@
 body *{
   border: 1px solid red;
+  background-color: #012A4A;
 }
+
 
 #grid-wrapper{
   display: grid;
   grid-template-columns: 1fr,1fr,1fr,1fr;
   grid-auto-rows: minmax(100px,auto);
+}
 
+#aboutSection {
+  position: flex;
+  justify-self: center;
+  margin-left: 200px;
 }
 
 nav{
@@ -14,7 +21,7 @@ nav{
   position: fixed;
 }
 
-nav ul li{
+nav ul li {
   list-style-type: none;
   display: inline-block;
   margin-left: 50px;
@@ -23,7 +30,32 @@ nav ul li{
 
 /* Main content */
 
-article{
-  width: 900px;
-  color: green;
-}
+  article {
+    background-color: #014F86;
+    width: 900px;
+    color: darkgray;
+  }
+
+  h1 {
+    color: #BFDBF7;
+    text-decoration: underline;
+    font-size: xx-large;
+  }
+
+  h2 {
+    color: #BFDBF7;
+    text-decoration: underline;
+    font-size: large;
+  }
+
+  h3 {
+    color: #BFDBF7;
+    text-decoration: overline;
+  }
+
+  p {
+    background-color: #014F86;
+  }
+  img{
+    float: left;
+  }
