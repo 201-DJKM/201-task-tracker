@@ -1,33 +1,50 @@
+:root{
+  --primary-lightBlue: #BFDBF7;
+  --primary-blue: #014F86;  
+  --primary-darkBlue: #012A4A;
+  --secondary-white: #FCFCFC;
+  --secondary-grey: #E0E2E6;
+  --secondary-green: #06D6A0;
+}
+
 body *{
-  /* border: 1px solid red; */
+  border: 1px solid red;
   background-color: #E0E2E6;
 }
 
-
-/* #grid-wrapper{
+#grid-wrapper{
   display: grid;
   grid-template-columns: 1fr,1fr,1fr,1fr;
   grid-auto-rows: minmax(100px,auto);
-} */
+}
+header {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 1em 1em 0;
+  background-color: var(--primary-blue);
+  color:var(--secondary-white);
+}
 
+header>ul{
+  width:35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ }
+
+ #link-myWorkouts{
+   background-color:var(--primary-darkBlue);
+   background-size:125%;
+   border-radius: 25%;
+ }
 
 nav{
   display:inline-block;
   position: fixed;
 }
 
-ul{
-  margin-top: 20px;
-  display: flex;
-  margin-left:50px ;
-}
 
-li {
-  list-style-type: none;
-  display: inline-block;
-  margin-left: 50px;
-  font-size: xx-large;
-}
 
 #aboutSection {
   position: flex;
@@ -108,3 +125,28 @@ li {
     font-size: large;
   }
 
+
+/* Footer formatting */
+
+  footer{
+    display: grid;
+    grid-template-columns: 1fr,1fr,1fr,1fr;
+    grid-auto-rows: minmax(100px,auto);
+  }
+  #footer-logo-section{
+    grid-column: 1/2;
+  }
+  #footer-company-section{
+    grid-column: 2/3;
+  }
+  #footer-help-section{
+    grid-column: 3/4;
+  }
+  #footer-copyright-section{
+    grid-row: 2/3;
+    grid-column: 1/5;
+  }
+  #footer-copyright-section>p{
+    display:inline;
+  }
+  

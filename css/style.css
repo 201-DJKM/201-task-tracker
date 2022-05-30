@@ -44,6 +44,7 @@ header>ul{
  header>ul>li{
   padding:3px;
  }
+ 
 #link-myWorkouts{
   background-color:var(--primary-darkBlue);
   background-size:125%;
