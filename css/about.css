@@ -9,11 +9,6 @@
   --secondary-green: #06D6A0;
 }
 
-body {
-  /* border: 1px solid red; */
-  background-color: #E0E2E6;
-}
-
 #grid-wrapper{
   display: grid;
   grid-template-columns: 1fr,1fr,1fr,1fr;
@@ -143,7 +138,23 @@ header>ul{
     grid-template-columns: 1fr,1fr,1fr,1fr;
     grid-auto-rows: minmax(100px,auto);
     background-color: var(--primary-darkBlue);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: var(--secondary-grey);
   }
+  
+  footer h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--secondary-grey);
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+
+  footer li{
+    margin-left: 30px;
+  }
+
   #footer-logo-section{
     grid-column: 1/2;
   }
