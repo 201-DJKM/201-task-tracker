@@ -1,6 +1,6 @@
 body *{
   /* border: 1px solid red; */
-  background-color: #012A4A;
+  background-color: #E0E2E6;
 }
 
 
@@ -39,53 +39,58 @@ li {
   article {
     margin:0 auto;
     background-color: #014F86;
-    color: darkgray;
     margin-top: 50px;
     border: 5px #BFDBF7;
     border-style: ridge;
     border-radius: 85px;
-    max-width: 750px;
-    display: flex;
+    max-width: fit-content;
+    display: flex; 
   }
 
   h1 {
     color: #BFDBF7;
     text-decoration: underline;
     font-size: xx-large;
+  
   }
 
   h2 {
-    color: #BFDBF7;
-    text-decoration: underline;
+    margin-top: 50px;
+    color: black;
     font-size: xx-large;
+    text-align: center;
   }
 
   #bio {
-    max-width: 500px;
+    max-width: 550px;
     background-color: #014F86;
+    border-radius: 35%;
   }
   #name {
-    color: #BFDBF7;
+    color: black;
     text-decoration: underline;
     font-size: x-large;
     background-color: none;
   }
 
   h3 {
-    color: #BFDBF7;
-    text-decoration: overline;
+    color: black;
+    text-decoration: underline;
     font-size: x-large;
     background-color: #014F86;
     max-width: fit-content;
     margin-left: 25px;
-    margin-top: 7px;
+    margin-top: 10px;
   }
 
   p {
     background-color: #014F86;
+    margin-top: 10px;
     margin-bottom: 25px;
     margin-left: 30px;
-    max-width: 750px;
+    margin-right: 10px;
+    max-width: 450px;
+    color: darkgray;
   }
 
   #headshot{
@@ -98,8 +103,8 @@ li {
 
   #github {
     background-color: #014F86;
-    color: #BFDBF7;
+    color: darkgray;
     margin-left: 25px;
-    margin-bottom: 10px;
+    font-size: large;
   }
 
