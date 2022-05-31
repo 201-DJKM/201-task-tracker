@@ -1,3 +1,5 @@
+
+/* ++++++++ GLOBAL RULES ++++++++++++ */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
 
 :root{
@@ -6,28 +8,24 @@
   --primary-darkBlue: #012A4A;
   --secondary-white: #FCFCFC;
   --secondary-grey: #E0E2E6;
-  --secondary-green: #06D6A0;
+  --secondary-green: #06d6a0;
+  --secondary-green-rgb: 6,214,160;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body *{
   /* border: 1px solid red; */
-  font-family:"Montserrat";
 }
 
-#grid-wrapper{
-  display: grid;
-  grid-template-columns: 1fr,1fr,1fr,1fr;
-  grid-auto-rows: minmax(100px,auto);
-
-}
+/* ++++++++ HEADER RULES ++++++++++++ */
 
 header {
   display:flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 1em 1em 0;
-  background-color: var(--primary-blue);
-  color:var(--secondary-white);
+  /* background-color: var(--primary-darkBlue); */
+  color:var(--primary-darkBlue);
 
 }
 h1{
@@ -38,7 +36,8 @@ header>ul{
   width:35%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  font-weight: 600;
  }
 
  header>ul>li{
@@ -48,125 +47,67 @@ header>ul{
  
 #link-myWorkouts{
   background-color:var(--secondary-green);
-  background-size:125%;
   border-radius: 23px;
-  height:50px;
-  width:185px;
-  padding-top:10px;
+  height:25px;
+  width:140px;
+  padding:10px 0px 0px 8px;
 }
 
-#dq-section{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  height:15em;
-  background-color: var(--secondary-grey);
-  color: var(--secondary-green);
+li a{
+  text-decoration: none;
+  color: var(--primary-darkBlue);
+}
+
+header a:visited {
+  color: var(--primary-darkBlue);
+}
+header a:hover{
+  text-decoration: underline 3px solid var(--primary-darkBlue);
 }
 
 
-fieldset{
-  margin:45px 0px 45px 45px;
-}
-
-legend{
-  font-size: xx-large;
-  margin-left: 50px;
-  margin-bottom: 20px;
-}
-
-/* +++++++++++ Start of Custom Radio Buttons +++++++++++++*/
-
-/* The container */
-.button {
-  display: inline;
-  position: relative;
-  height:100px;
-  margin-left: 100px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  background-color: var(--secondary-grey);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Hide the browser's default radio button */
-.button input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-/* Create a custom radio button */
-.selector {
-  position: absolute;
-  top: -10px;
-  left: -85px;
-  height: 40px;
-  width: 65px;
-  /* background-color: #eee; */
-  border-radius: 5%;
-}
-/* On mouse-over, add a grey background color */
-.button:hover input ~ .selector {
-  background-color:var(--primary-lightBlue);
-}
-/* When the radio button is checked, add a blue background */
-.button input:checked ~ .selector {
-  background-color: var(--primary-blue);
-}
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.selector:after {
-  content: "X";
-  position: absolute;
-  display: none;
-}
-/* Show the indicator (dot/circle) when checked */
-.button input:checked ~ .selector:after {
-  display: block;
-}
-
-/* Style the indicator ( big X) */
-.button .selector:after {
- 	top: 6px;
-	left: 22px;
-	width: 18px;
-	height: 18px;
-  color: var(--secondary-white)
-
-}
-input{
-	margin-left:40px;
-  padding-left:40px;
-	
-}
-/* +++++++++++ End of Custom Radio Buttons +++++++++++++*/
-
-#next-btn{
-  display: block;
-  margin-top: 40px;
-  margin-left: 40px;
-  height:3em;
-  width:10em;
-  border:none;
-  border-radius: 25%;
-}
+/* ++++++++++++ FOOTER RULES +++++++++++++++ */
 
 footer{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-rows: minmax(100px,auto);
+  column-gap: 4em;
   padding: 0px 10px;
   background-color: var(--primary-darkBlue);
+  color: var(--secondary-white);
 }
+
+footer a{
+  color: var(--secondary-white);
+}
+
+footer a:visited{
+  color: var(--secondary-white);
+}
+footer a:hover{
+  text-decoration:  underline 3px solid var(--secondary-white);
+}
+
 #footer-logo-section{
   grid-column: 1/2;
 }
+#footer-logo{
+  margin: 20px;
+}
+
 #footer-company-section{
   grid-column: 2/3;
 }
+#footer-company-section h3, #footer-help-section h3{
+  margin:10px;
+  font-size:x-large;
+  font-weight:600;
+}
+#footer-company-section li, #footer-help-section li{
+  margin:10px;
+}
+
 #footer-help-section{
   grid-column: 3/4;
 }
@@ -174,8 +115,16 @@ footer{
   grid-row: 2/3;
   grid-column: 1/5;
 }
-#footer-copyright-section{
+hr{
+  display: block;
+  width:125%;
+  margin: 25px 0px 25px -20px;
+}
+#footer-copyright-section p:first-of-type{
   display:inline-flex;
-  justify-content: space-between;
-  align-items: center;
+  float:left;
+}
+#footer-copyright-section p:last-of-type{
+  display: inline-flex;
+  float:right;
 }
