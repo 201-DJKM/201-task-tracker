@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+:root{
+  --primary-lightBlue: #BFDBF7;
+  --primary-blue: #014F86;  
+  --primary-darkBlue: #012A4A;
+  --secondary-white: #FCFCFC;
+  --secondary-grey: #E0E2E6;
+  --secondary-green: #06D6A0;
+}
+
 body *{
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  font-family:"Montserrat";
 }
 
 #grid-wrapper{
@@ -9,35 +21,72 @@ body *{
 
 }
 
+header {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 1em 1em 0;
+  background-color: var(--primary-blue);
+  color:var(--secondary-white);
+
+}
+h1{
+  display: none;
+}
+
+header>ul{
+  width:35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ }
+
+ header>ul>li{
+  padding-top:10px;
+  font-size: 16px;
+ }
+ 
+#link-myWorkouts{
+  background-color:var(--secondary-green);
+  background-size:125%;
+  border-radius: 23px;
+  height:50px;
+  width:185px;
+  padding-top:10px;
+}
+
+#dq-section{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:15em;
+  background-color: var(--secondary-grey);
+  color: var(--secondary-green);
+}
 
 
+fieldset{
+  margin:45px 0px 45px 45px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+legend{
+  font-size: xx-large;
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
 
 /* +++++++++++ Start of Custom Radio Buttons +++++++++++++*/
+
 /* The container */
 .button {
   display: inline;
   position: relative;
-  padding-left: 75px;
+  height:100px;
+  margin-left: 100px;
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 22px;
+  background-color: var(--secondary-grey);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -53,20 +102,20 @@ body *{
 /* Create a custom radio button */
 .selector {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -10px;
+  left: -85px;
   height: 40px;
   width: 65px;
-  background-color: #eee;
+  /* background-color: #eee; */
   border-radius: 5%;
 }
 /* On mouse-over, add a grey background color */
 .button:hover input ~ .selector {
-  background-color: #ccc;
+  background-color:var(--primary-lightBlue);
 }
 /* When the radio button is checked, add a blue background */
 .button input:checked ~ .selector {
-  background-color: #2196F3;
+  background-color: var(--primary-blue);
 }
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .selector:after {
@@ -85,7 +134,7 @@ body *{
 	left: 22px;
 	width: 18px;
 	height: 18px;
-  color: white;
+  color: var(--secondary-white)
 
 }
 input{
@@ -94,3 +143,39 @@ input{
 	
 }
 /* +++++++++++ End of Custom Radio Buttons +++++++++++++*/
+
+#next-btn{
+  display: block;
+  margin-top: 40px;
+  margin-left: 40px;
+  height:3em;
+  width:10em;
+  border:none;
+  border-radius: 25%;
+}
+
+footer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: minmax(100px,auto);
+  padding: 0px 10px;
+  background-color: var(--primary-darkBlue);
+}
+#footer-logo-section{
+  grid-column: 1/2;
+}
+#footer-company-section{
+  grid-column: 2/3;
+}
+#footer-help-section{
+  grid-column: 3/4;
+}
+#footer-copyright-section{
+  grid-row: 2/3;
+  grid-column: 1/5;
+}
+#footer-copyright-section{
+  display:inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
