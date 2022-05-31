@@ -21,8 +21,11 @@ header {
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 1em 1em 0;
-  background-color: var(--primary-blue);
-  color: var(--secondary-white);
+  background-color: var(--secondary-white);
+}
+
+h1{
+  visibility: hidden;
 }
 
 header>ul{
@@ -149,6 +152,11 @@ header>ul{
     color: var(--secondary-grey);
     text-decoration: none;
     margin-bottom: 20px;
+  }
+  
+  footer p {
+    justify-content: end;
+    color: var(--secondary-grey);
   }
 
   footer li{
