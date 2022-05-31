@@ -110,10 +110,9 @@ function Workout(woType, woTime) {
     for (let i = 0; i < woType.length; i++) {
       if (woType[i].checked) {
         console.log(woType[i].value)
+        
       }
     }
-  
-    console.log(woType);
   
     // new Workout(woType, woTime);
   
@@ -124,6 +123,7 @@ function Workout(woType, woTime) {
   //**************************************** 
   
   // typeForm.addEventListener('submit', handleSubmit);
+
   nextBtn.addEventListener('click', handleSubmit);
 
 /* **********************************************
