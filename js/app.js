@@ -4,107 +4,127 @@
 //          GLOBAL VARIABLES
 // ****************************************
 
+//Hard coded reserve of STRETCH exercises:
+let stretchBankArr = [];
 
-// ***********Click Variables****************
+//Hard coded reserve of STRETCH PHOTOS:
+let stretchPhotos = [];
+
+//Hard coded reserve of STRENGTH exercises:
+let strengthBankArr = [];
+
+//Hard coded reserve of STRENGTH PHOTOS:
+let strengthPhotos = [];
+
+//Hard coded reserve of ABS exercises:
+let absBankArr = [];
+
+//Hard coded reserve of ABS PHOTOS:
+let absPhotos = [];
+
+//Hard coded reserve of ENDURANCE exercises:
+let enduranceBankArr = [];
+
+//Hard coded reserve of ENDURANCE PHOTOS:
+let endurancePhotos = [];
+
+
+let typeForm = document.getElementById('typeForm');
+
+let nextBtn = document.getElementById('next-btn');
+
+// ***********CLICK MANAGEMENT****************
 
 
 // *******************************************
 //             CONSTRUCTOR
 //********************************************
 
+// ARRAY THAT WILL STORE ALL PAST WORKOUTS
+let workoutHistory = [];
 
+// WORKOUT GENERATOR CONSTRUCTOR
 
-// *********************************************
-//     INSTANTIATION & LOCAL STORAGE PT 2
-// *********************************************
+function Workout(woType, woTime) {
 
-//****************************************
-//            HELPER FUNCTIONS
-//****************************************
+  // INPUT: WORKOUT TYPE
+  this.type = woType;
 
-// RANDOM # GENERATOR
-function randNum() {
-  return Math.floor(Math.random() * allProductsArr.length);
+  // INPUT: WORKOUT TIME
+  this.time = woTime;
+
+  // PHOTOS FROM RELEVANT PHOTO ARRAY
+  this.photoArr = [];
+
+  // EXERCISES FROM RELEVANT MOVEMENT ARRAY
+  this.movementArr = [];
+
+  // OUTPUT: INVOKE WORKOUT RENDER FUNCTION 
+  this.renderWorkout();
+
+  // ADD NEW WORKOUT TO WORKOUT HISTORY
+  workoutHistory.push(this);
 }
 
+// METHODS TO PROTOTYPES
 
-// *********************************************
-//              CHART RENDERING
-// *********************************************
+// ***********5/31 (MARCO)
 
-// function renderChart() {
-
-//   let productName = [];
-//   let productVotes = [];
-//   let productViews = [];
-
-//   for (let i = 0; i < allProductsArr.length; i++) {
-//     productName.push(allProductsArr[i].name);
-//     productVotes.push(allProductsArr[i].votes);
-//     productViews.push(allProductsArr[i].views);
-//   }
-
-//   new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//       labels: productName,
-//       datasets: [{
-//         label: '# of Votes',
-//         data: productVotes,
-//         backgroundColor: [
-//           'rgba(255, 99, 132, 0.2)',
-//           'rgba(54, 162, 235, 0.2)',
-//           'rgba(255, 206, 86, 0.2)',
-//           'rgba(75, 192, 192, 0.2)',
-//           'rgba(153, 102, 255, 0.2)',
-//           'rgba(255, 159, 64, 0.2)'
-//         ],
-//         borderColor: [
-//           'rgba(255, 99, 132, 1)',
-//           'rgba(54, 162, 235, 1)',
-//           'rgba(255, 206, 86, 1)',
-//           'rgba(75, 192, 192, 1)',
-//           'rgba(153, 102, 255, 1)',
-//           'rgba(255, 159, 64, 1)'
-//         ],
-//         borderWidth: 1
-//       }, {
-//         label: '# of Views',
-//         data: productViews,
-//         backgroundColor: [
-//           'rgba(255, 99, 132, 0.2)',
-//           'rgba(54, 162, 235, 0.2)',
-//           'rgba(255, 206, 86, 0.2)',
-//           'rgba(75, 192, 192, 0.2)',
-//           'rgba(153, 102, 255, 0.2)',
-//           'rgba(255, 159, 64, 0.2)'
-//         ],
-//         borderColor: [
-//           'rgba(255, 99, 132, 1)',
-//           'rgba(54, 162, 235, 1)',
-//           'rgba(255, 206, 86, 1)',
-//           'rgba(75, 192, 192, 1)',
-//           'rgba(153, 102, 255, 1)',
-//           'rgba(255, 159, 64, 1)'
-//         ],
-//         borderWidth: 1
-//       }]
-//     },
-//   });
-// }
+// function handleSubmit(event) {
+  //   event.preventDefault();
+  
+  //   let woType = event.target.type.value;
+  //   let woTime = event.target.time.value;
+  
+  //   new Workout(woType, woTime);
+  
+  // }
+  
+  // *********************************************
+  //     INSTANTIATION & LOCAL STORAGE PT 2
+  // *********************************************
+  
+  //****************************************
+  //            HELPER FUNCTIONS
+  //****************************************
+  
+  // RANDOM # GENERATOR
+  function randNum() {
+    return Math.floor(Math.random() * allProductsArr.length);
+  }
+  
+  
+  // *********************************************
+  //              CHART RENDERING
+  // *********************************************
 
 
-//********************************************
-//            EVENT HANDLERS
-//******************************************** */
-
-
-
-//****************************************
-//            EVENT LISTENERS
-//**************************************** 
-
-productContainer.addEventListener('click', handleClick);
+  //********************************************
+  //            EVENT HANDLERS
+  //*******************************************
+  // PROOF OF LIFE -- STARTING WITH STRETCH WORKOUT
+  function handleSubmit(event) {
+    event.preventDefault();
+    
+    let woType = document.getElementsByName('radio');
+    for (let i = 0; i < woType.length; i++) {
+      if (woType[i].checked) {
+        console.log(woType[i].value)
+      }
+    }
+  
+    console.log(woType);
+  
+    // new Workout(woType, woTime);
+  
+  }
+  
+  //****************************************
+  //            EVENT LISTENERS
+  //**************************************** 
+  
+  // typeForm.addEventListener('submit', handleSubmit);
+  nextBtn.addEventListener('click', handleSubmit);
 
 /* **********************************************
                   LOCAL STORAGE
