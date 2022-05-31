@@ -7,6 +7,7 @@
   <title>Take Ten</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
   
 
 </head>
@@ -15,20 +16,20 @@
   <div id="grid-wrapper">
 
     <header>
-      <img id="header-logo" src="" alt="Take Ten Logo">
+      <img id="header-logo" src="img/taketenlogo.png" alt="Take Ten Logo">
       
       <h1>Take Ten Workout Generator</h1>
 
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about-page.html">About</a></li>
-        <li id="link-myWorkouts"><a href="my-workouts.html">Create A Circuit</a></li>
+        <li id="link-myWorkouts"><a href="my-workouts.html"> Create A Circuit </a></li>
         <li><a a href="faq.html">FAQ</a></li>
       </ul>
     </header>
 
     <section id="dq-section">
-      <p id="daily-quote"> " Content So that I can style this section area"  - Socrates</p>
+      <p id="daily-quote"> " Content So that I can style this section area and also check on the word wrap and all that jazz and stuff. also confucias said so"  - Socrates</p>
     </section>
 
     <main id="main-content">
@@ -50,13 +51,13 @@
           <input type="radio" name="radio">
           <span class="selector"></span>
         </label>
-        <button id="next-btn">Next</button>
+        <button id="next-btn" onclick="location.href='time-page.html'" type="button">Next</button>
       </fieldset>
     </main>
 
     <footer>
       <section id="footer-logo-section">
-        <img id="footer-logo" src="" alt="Take Ten Logo">
+        <img id="footer-logo" src="img/taketenlogo.png" alt="Take Ten Logo">
         <p> 
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nobis neque, placeat quasi mollitia quos tenetur in, fuga eligendi.
         </p>
@@ -64,18 +65,19 @@
       <section id="footer-company-section">
         <h3>Company</h3>
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-page.html">About</a></li>
+          <li><a href="mailto:someone@yoursite.com">Contact Us</a></li>
         </ul>
       </section>
       <section id="footer-help-section">
         <h3>Help Center</h3>
         <ul>
-          <li>FAQ</li>
+          <li><a a href="faq.html">FAQ</a></li>
         </ul>
       </section>
       <section id="footer-copyright-section">
+        <hr>
         <p>&COPY; 2022 circuittrainer | All rights reserved</p>
         <p>Created by: DJKM Inc.</p>
       </section>
