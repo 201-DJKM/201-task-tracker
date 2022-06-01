@@ -4,115 +4,238 @@
 //          GLOBAL VARIABLES
 // ****************************************
 
+//Hard coded reserve of STRETCH exercises:
+let stretchBankArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
-// ***********Click Variables****************
+//Hard coded reserve of STRETCH PHOTOS:
+let stretchPhotos = [];
+
+//Hard coded reserve of STRENGTH exercises:
+let strengthBankArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+//Hard coded reserve of STRENGTH PHOTOS:
+let strengthPhotos = [];
+
+//Hard coded reserve of ABS exercises:
+let absBankArr = [];
+
+//Hard coded reserve of ABS PHOTOS:
+let absPhotos = [];
+
+//Hard coded reserve of ENDURANCE exercises:
+let enduranceBankArr = [];
+
+//Hard coded reserve of ENDURANCE PHOTOS:
+let endurancePhotos = [];
+
+// let typeForm = document.getElementById('typeForm');
+
+// CHOSEN TYPE 
+let chosenType = '';
+
+// CHOSEN TIME 
+let chosenTime = '';
+
+// DOM tag for Type-of-workout selection
+let nextBtn = document.getElementById('next-btn');
+
+// DOM tag for Time-of-workout selection
+let genBtn = document.getElementById('gen-btn');
+
+// ***********CLICK MANAGEMENT****************
 
 
 // *******************************************
 //             CONSTRUCTOR
 //********************************************
 
+// ARRAY THAT WILL STORE ALL PAST WORKOUTS
+let workoutHistory = [];
 
+// WORKOUT GENERATOR CONSTRUCTOR
 
-// *********************************************
-//     INSTANTIATION & LOCAL STORAGE PT 2
-// *********************************************
+function Workout(woType, woTime) {
 
-//****************************************
-//            HELPER FUNCTIONS
-//****************************************
+  // INPUT: WORKOUT TYPE
+  this.type = woType;
 
-// RANDOM # GENERATOR
-function randNum() {
-  return Math.floor(Math.random() * allProductsArr.length);
+  // 
+  this.bank = [];
+
+  // INPUT: WORKOUT TIME
+  this.numOfMovements = Math.floor(parseInt(woTime)/2);
+
+  // PHOTOS FROM RELEVANT PHOTO ARRAY
+  this.photoArr = [];
+
+  // EXERCISES FROM RELEVANT MOVEMENT ARRAY
+  this.movementArr = [];
+
+  // CHOOSE MOVEMENT BANK ARRAY
+  this.bankChooser();
+
+  // POPULATE THIS.MOVEMENTARR[]
+  this.generateWorkoutMovements();
+
+  // OUTPUT: INVOKE WORKOUT RENDER FUNCTION 
+  // this.renderWorkout();
+
+  // ADD NEW WORKOUT TO WORKOUT HISTORY
+  workoutHistory.push(this);
+
+  // PROOF OF COMPLETION
+  console.log('constructor complete');
 }
 
-
-// *********************************************
-//              CHART RENDERING
-// *********************************************
-
-// function renderChart() {
-
-//   let productName = [];
-//   let productVotes = [];
-//   let productViews = [];
-
-//   for (let i = 0; i < allProductsArr.length; i++) {
-//     productName.push(allProductsArr[i].name);
-//     productVotes.push(allProductsArr[i].votes);
-//     productViews.push(allProductsArr[i].views);
-//   }
-
-//   new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//       labels: productName,
-//       datasets: [{
-//         label: '# of Votes',
-//         data: productVotes,
-//         backgroundColor: [
-//           'rgba(255, 99, 132, 0.2)',
-//           'rgba(54, 162, 235, 0.2)',
-//           'rgba(255, 206, 86, 0.2)',
-//           'rgba(75, 192, 192, 0.2)',
-//           'rgba(153, 102, 255, 0.2)',
-//           'rgba(255, 159, 64, 0.2)'
-//         ],
-//         borderColor: [
-//           'rgba(255, 99, 132, 1)',
-//           'rgba(54, 162, 235, 1)',
-//           'rgba(255, 206, 86, 1)',
-//           'rgba(75, 192, 192, 1)',
-//           'rgba(153, 102, 255, 1)',
-//           'rgba(255, 159, 64, 1)'
-//         ],
-//         borderWidth: 1
-//       }, {
-//         label: '# of Views',
-//         data: productViews,
-//         backgroundColor: [
-//           'rgba(255, 99, 132, 0.2)',
-//           'rgba(54, 162, 235, 0.2)',
-//           'rgba(255, 206, 86, 0.2)',
-//           'rgba(75, 192, 192, 0.2)',
-//           'rgba(153, 102, 255, 0.2)',
-//           'rgba(255, 159, 64, 0.2)'
-//         ],
-//         borderColor: [
-//           'rgba(255, 99, 132, 1)',
-//           'rgba(54, 162, 235, 1)',
-//           'rgba(255, 206, 86, 1)',
-//           'rgba(75, 192, 192, 1)',
-//           'rgba(153, 102, 255, 1)',
-//           'rgba(255, 159, 64, 1)'
-//         ],
-//         borderWidth: 1
-//       }]
-//     },
-//   });
+// METHODS TO PROTOTYPES
+// for (let i = 0; i < this.numOfMovements; i++) {
+//   let randoMovement = randNum(stretchBankArr.length);
+//   this.movementArr.push(stretchBankArr[randoMovement]);
 // }
 
+Workout.prototype.bankChooser = function() {
+  if (this.type === 'stretch') {
+    this.bank = stretchBankArr;
+  } else if (this.type === 'strength') {
+    this.bank = strengthBankArr;
+  } else if (this.type === 'abs') {
+    this.bank = absBankArr;
+  } else {
+    this.bank = enduranceBankArr;
+  }
+};
 
-//********************************************
-//            EVENT HANDLERS
-//******************************************** */
+Workout.prototype.generateWorkoutMovements = function () {
+  while (this.movementArr.length < this.numOfMovements) {
+    let randoNum = randNum(this.bank.length);
+
+    if (!this.movementArr.includes(randoNum)) {
+      this.movementArr.push(randoNum);
+    }
+  }
+
+};
+
+// *********************************************
+  //     INSTANTIATION & LOCAL STORAGE PT 2
+  // *********************************************
+  // console.log(new Workout('stretch', '10'));
+  // console.log(new Workout('strength', '10')); 
+
+  //****************************************
+  //            HELPER FUNCTIONS
+  //****************************************
+  
+  // RANDOM # GENERATOR
+  function randNum(max) {
+    return Math.floor(Math.random() * max);
+  }
+  
+  
+  // *********************************************
+  //              CHART RENDERING
+  // *********************************************
 
 
+  //********************************************
+  //            EVENT HANDLERS
+  //*******************************************
+  // CLICK HANDLER FOR --TYPE-- SELECTION
+  function handleType(event) {
+    event.preventDefault();
+    
+    let woType = document.getElementsByName('radio');
+    for (let i = 0; i < woType.length; i++) {
+      if (woType[i].checked) {
+        console.log(woType[i].value);
+        chosenType = woType[i].value;
+        // STORE TYPE LOCALLY
+        
+        // STEP 1: STRINGIFY DATA
+        let stringifiedType = JSON.stringify(woType[i].value);
+        
+        // STEP 2: ADD TO LOCAL STORAGE
+        workoutObject = {
+          type : "chosenType"
+        };
 
-//****************************************
-//            EVENT LISTENERS
-//**************************************** 
+        let workoutObjectJSON = JSON.stringify(workoutObject);
 
-productContainer.addEventListener('click', handleClick);
+        localStorage.setItem('CurrentWO', workoutObjectJSON);
+        
+        // PROOF OF LIFE (STORED DATA)
+        let chosenType = localStorage.getItem('CurrentWO');
+        let chosenType2 = JSON.parse(text);
 
-/* **********************************************
-                  LOCAL STORAGE
-********************************************** */
+        console.log(chosenType2);
+      }
+    }
+      
+  }
+  
+  // CLICK HANDLER FOR --TIME-- SELECTION
+  function handleTime(event) {
+    event.preventDefault();
+    
+    let woTime = document.getElementsByName('radio');
+    for (let i = 0; i < woTime.length; i++) {
+      if (woTime[i].checked) {
+        console.log(woTime[i].value);
 
-// STEP 1: STRINGIFY DATA
-// let stringifiedProducts = JSON.stringify(allProductsArr);
+        chosenType = localStorage.getItem('CurrentWO');
 
-// STEP 2: ADD TO LOCAL STORAGE
-// localStorage.setItem('products', stringifiedProducts);
+        chosenTime = woTime[i].value;
+        console.log(chosenTime);
+        console.log(chosenType);
+
+        let currentWorkout = new Workout(localStorage.getItem('CurrentWO'), chosenTime);
+    
+        console.log('this is our current workout', currentWorkout);
+        
+        // STORE TIME LOCALLY
+    
+        // STEP 1: STRINGIFY TIME
+        let stringifiedTime = JSON.stringify(woTime[i].value);
+        
+        // STEP 2: ADD TO LOCAL STORAGE
+        localStorage.setItem('CurrentWOTIME', stringifiedTime);
+    
+        // PROOF OF LIFE (STORED DATA)
+        let storedWOTIME = localStorage.getItem('CurrentWOTIME');
+        console.log(storedWOTIME);
+        console.log(storedWO);
+      }
+    }
+    
+  }
+  
+  //****************************************
+  //            EVENT LISTENERS
+  //**************************************** 
+  
+  // typeForm.addEventListener('submit', handleSubmit);
+  
+  window.onload = (event) => {
+    if (document.getElementById('type-page')) {
+      nextBtn.addEventListener('click', handleType);
+
+    } else if (document.getElementById('time-page')) {
+
+      genBtn.addEventListener('click', handleTime);
+    }
+  };
+  
+
+  
+  // nextBtn.removeEventListener('click', handleType);
+  
+  /* **********************************************
+  LOCAL STORAGE
+  ********************************************** */
+ 
+ // STEP 1: STRINGIFY DATA
+ // let stringifiedProducts = JSON.stringify(allProductsArr);
+ 
+ // STEP 2: ADD TO LOCAL STORAGE
+ // localStorage.setItem('products', stringifiedProducts);
 
