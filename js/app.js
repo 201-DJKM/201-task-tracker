@@ -11,7 +11,7 @@ let stretchBankArr = [['Hamtrings Stretch', 'Remaining seated, extend one leg ou
 let stretchPhotos = [];
 
 //Hard coded reserve of STRENGTH exercises:
-let strengthBankArr = [['Squats','Go down very slowly, while going down you have to inhale. Keep your back straight and when youre going down, your knees should not go beyond your toes, or you will injure your knee and back.'], ['Pushups', 'For a simple pushup, lie down with your palms near our chest and lift up your body with pressure on your palms. Hold for a few seconds and repeat.'], ['Single-leg Glute Bridge', 'Lie on your back with one leg raised in the air. Thrust forward and raise your hips off the ground as high as you can. Clench your glutes at the top of the rep to activate more muscle fibres and see greater growth. Slowly lower yourself to the floor.'], ['Spider-Man press-up', 'Start in the top of a press-up position. Bend your arms to lower your chest until its just off the floor and simultaneously bring one knee up to your elbow, then return to the start. Alternate knees. '], ['Wide-grip push-up', 'Perform a standard push-up but with your arms double shoulder-width apart. Lower your chest until its just off the floor, then press back up until your arms are straight.'], ['Reverse Lunges', 'Start standing with your feet about shoulder-width apart. Step backwards with your left foot, landing on the ball of your foot and bending your knees to create two 90-degree angles. Push through your right heel to return to standing. Repeat on the other side.'], ['Squat Jacks', 'Start standing with your feet together, hands at your chest. Jump your feet out and sit back into a small squat. Jump your feet back together to return to standing.'], ['Diamond Push-Ups', 'Start in a high plank. Walk your hands together so that your thumbs and forefingers form a triangle. Bend your elbows to lower your chest and torso toward the floor and then push back up.'], ['Donkey Kicks', 'Start on all fours. Pull your right knee toward your chest, keeping your foot flexed. Then, kick your right leg up behind you and toward the sky, then back down, keeping your knee bent and foot flexed. Repeat on the other side.'], ['Single-Leg Reach and Jumps', 'Stand with feet hip width apart, hands at your sides. Hinge at your hips and bend your knees to extend your left leg behind you (no higher than your hips) as you reach your left arm to ground about a foot ahead of where your left foot was. Drive your left knee up to return to an upright position, and hop on your right foot. Repeat on the other side.']];
+let strengthBankArr = [['Squats', 'Go down very slowly, while going down you have to inhale. Keep your back straight and when youre going down, your knees should not go beyond your toes, or you will injure your knee and back.'], ['Pushups', 'For a simple pushup, lie down with your palms near our chest and lift up your body with pressure on your palms. Hold for a few seconds and repeat.'], ['Single-leg Glute Bridge', 'Lie on your back with one leg raised in the air. Thrust forward and raise your hips off the ground as high as you can. Clench your glutes at the top of the rep to activate more muscle fibres and see greater growth. Slowly lower yourself to the floor.'], ['Spider-Man press-up', 'Start in the top of a press-up position. Bend your arms to lower your chest until its just off the floor and simultaneously bring one knee up to your elbow, then return to the start. Alternate knees. '], ['Wide-grip push-up', 'Perform a standard push-up but with your arms double shoulder-width apart. Lower your chest until its just off the floor, then press back up until your arms are straight.'], ['Reverse Lunges', 'Start standing with your feet about shoulder-width apart. Step backwards with your left foot, landing on the ball of your foot and bending your knees to create two 90-degree angles. Push through your right heel to return to standing. Repeat on the other side.'], ['Squat Jacks', 'Start standing with your feet together, hands at your chest. Jump your feet out and sit back into a small squat. Jump your feet back together to return to standing.'], ['Diamond Push-Ups', 'Start in a high plank. Walk your hands together so that your thumbs and forefingers form a triangle. Bend your elbows to lower your chest and torso toward the floor and then push back up.'], ['Donkey Kicks', 'Start on all fours. Pull your right knee toward your chest, keeping your foot flexed. Then, kick your right leg up behind you and toward the sky, then back down, keeping your knee bent and foot flexed. Repeat on the other side.'], ['Single-Leg Reach and Jumps', 'Stand with feet hip width apart, hands at your sides. Hinge at your hips and bend your knees to extend your left leg behind you (no higher than your hips) as you reach your left arm to ground about a foot ahead of where your left foot was. Drive your left knee up to return to an upright position, and hop on your right foot. Repeat on the other side.']];
 
 //Hard coded reserve of STRENGTH PHOTOS:
 let strengthPhotos = [];
@@ -221,6 +221,36 @@ function handleTime(event) {
 };
 
 
+function renderCurrWorkout() {
+  //create workout card
+  let workoutCard = document.getElementById('workout-card');
+
+
+  // Retrieve stored object
+  let retrievedWorkCard = localStorage.getItem('ChosenWorkout');
+  // Parse stored Object
+  let parsedWorkCard = JSON.parse(retrievedWorkCard);
+
+  for (let i = 0; i < parsedWorkCard.numOfMovements; i++) {
+    let newMovement = document.createElement('h3');
+    workoutCard.appendChild(newMovement);
+    newMovement.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0];
+    let newSteps = document.createElement('p');
+    workoutCard.appendChild(newSteps);
+    newSteps.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1];
+  }
+}
+
+// renderCurrWorkout();
+
+// Retrieve stored object
+let retrievedWorkCard = localStorage.getItem('ChosenWorkout');
+// Parse stored Object
+let parsedWorkCard = JSON.parse(retrievedWorkCard);
+
+console.log(parsedWorkCard);
+
+
 //****************************************
 //            EVENT LISTENERS
 //**************************************** 
@@ -236,7 +266,7 @@ window.onload = (event) => {
 
     genBtn.addEventListener('click', handleTime);
   } else if (document.getElementById('workout-card')) {
-    // INVOKE GENERATE WORKOUT CARD FUNCTION
+    renderCurrWorkout();
   }
 };
 

@@ -7,7 +7,8 @@
   <title>Take Ten</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet"  href="css/workout-page.css">
+  <link rel="stylesheet" href="css/workout-page.css">
+
 
 </head>
 
@@ -29,19 +30,12 @@
     </header>
 
     <main id="workout">
-      <h1>Below is your workout for today.</h1>
-      <article id="workout-card">
-        <h2>Movement One</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        <h2>Movement Two</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        <h2>Movement Three</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        <h2>Movement Four</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+      <h2>Below is your workout <br>for today.</h2>
+      <article>
+        <ul id="workout-card"></ul>
       </article>
-    </main>
 
+      <button id="refresh" onclick="location.href='#'" type="button">Generate New Circuit</button>
 
     <footer>
       <section id="footer-logo-section">
@@ -71,6 +65,6 @@
       </section>
     </footer>
   </div>
-  <script src="app.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
