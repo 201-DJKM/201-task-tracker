@@ -62,7 +62,10 @@ function Workout(woType, woTime) {
   // 
   this.bank = [];
 
-  // INPUT: WORKOUT TIME
+  // INPUT: WORKOUT TIME 
+  this.selectedTime = woTime;
+
+  // NUMBER OF MOVEMENTS (BASED ON TIME ENTRY)
   this.numOfMovements = Math.floor(parseInt(woTime)/2);
 
   // PHOTOS FROM RELEVANT PHOTO ARRAY
@@ -85,7 +88,7 @@ function Workout(woType, woTime) {
 
   // PROOF OF COMPLETION
   console.log('constructor complete');
-}
+};
 
 // METHODS TO PROTOTYPES
 // for (let i = 0; i < this.numOfMovements; i++) {
@@ -129,8 +132,12 @@ Workout.prototype.generateWorkoutMovements = function () {
   // RANDOM # GENERATOR
   function randNum(max) {
     return Math.floor(Math.random() * max);
-  }
+  };
   
+  // WORKOUT CARD GENERATOR
+  function workoutCardGenerator() {
+    
+  }
   
   // *********************************************
   //              CHART RENDERING
@@ -147,31 +154,27 @@ Workout.prototype.generateWorkoutMovements = function () {
     let woType = document.getElementsByName('radio');
     for (let i = 0; i < woType.length; i++) {
       if (woType[i].checked) {
-        console.log(woType[i].value);
-        chosenType = woType[i].value;
-        // STORE TYPE LOCALLY
-        
-        // STEP 1: STRINGIFY DATA
-        let stringifiedType = JSON.stringify(woType[i].value);
-        
-        // STEP 2: ADD TO LOCAL STORAGE
-        workoutObject = {
-          type : "chosenType"
-        };
 
+        console.log(woType[i].value)
+        let workoutType = woType[i].value;
+        // STORE TYPE LOCALLY
+        // STEP 1: CREATE OBJECT FOR STORAGE
+        let workoutObject = {
+          type : workoutType
+        }
+        // STEP 2: STRINGIFY DATA
         let workoutObjectJSON = JSON.stringify(workoutObject);
 
         localStorage.setItem('CurrentWO', workoutObjectJSON);
-        
         // PROOF OF LIFE (STORED DATA)
-        let chosenType = localStorage.getItem('CurrentWO');
-        let chosenType2 = JSON.parse(text);
+        let retrievedData = localStorage.getItem('CurrentWO');
+        let parsedRetrievedData = JSON.parse(retrievedData);
 
-        console.log(chosenType2);
+        console.log(parsedRetrievedData);
       }
     }
       
-  }
+  };
   
   // CLICK HANDLER FOR --TIME-- SELECTION
   function handleTime(event) {
@@ -180,40 +183,44 @@ Workout.prototype.generateWorkoutMovements = function () {
     let woTime = document.getElementsByName('radio');
     for (let i = 0; i < woTime.length; i++) {
       if (woTime[i].checked) {
-        console.log(woTime[i].value);
 
-        chosenType = localStorage.getItem('CurrentWO');
+        console.log(woTime[i].value)
+        let workoutTime = woTime[i].value;
 
-        chosenTime = woTime[i].value;
-        console.log(chosenTime);
-        console.log(chosenType);
-
-        let currentWorkout = new Workout(localStorage.getItem('CurrentWO'), chosenTime);
-    
-        console.log('this is our current workout', currentWorkout);
-        
         // STORE TIME LOCALLY
-    
-        // STEP 1: STRINGIFY TIME
-        let stringifiedTime = JSON.stringify(woTime[i].value);
-        
-        // STEP 2: ADD TO LOCAL STORAGE
-        localStorage.setItem('CurrentWOTIME', stringifiedTime);
-    
-        // PROOF OF LIFE (STORED DATA)
-        let storedWOTIME = localStorage.getItem('CurrentWOTIME');
-        console.log(storedWOTIME);
-        console.log(storedWO);
+        // STEP 1: RETRIEVE STORED OBJECT
+        let retrievedObject = localStorage.getItem('CurrentWO');
+        // STEP 2: PARSE STORED OBJECT
+        let parsedRetrievedObject = JSON.parse(retrievedObject);
+        // STEP 3: SET 'TIME' KEY:VALUE PAIR
+        parsedRetrievedObject.time = workoutTime;
+        // STEP 4: STRINGIFY AGAIN TO STORE
+        let stringifiedObjectWithTime = JSON.stringify(parsedRetrievedObject);
+        //STEP 5: STORE AGAIN
+        localStorage.setItem('CurrentWO', stringifiedObjectWithTime);
+        //STEP 6: PROOF OF LIFE
+        let currentWorkout = new Workout(parsedRetrievedObject.type, parsedRetrievedObject.time);
+
+        // STORE NEW WORKOUT IN LOCAL STORAGE
+        // STRINGIFY WORKOUT
+        let stringifiedNewWorkout = JSON.stringify(currentWorkout);
+        // STORE WORKOUT
+        localStorage.setItem('ChosenWorkout', stringifiedNewWorkout);
+
+
+        //TAKE USER TO WORKOUT PAGE
+        window.location.href='workout-page.html';
       }
     }
     
-  }
+  };
   
   //****************************************
   //            EVENT LISTENERS
   //**************************************** 
   
   // typeForm.addEventListener('submit', handleSubmit);
+  // nextBtn.removeEventListener('click', handleType);
   
   window.onload = (event) => {
     if (document.getElementById('type-page')) {
@@ -222,20 +229,13 @@ Workout.prototype.generateWorkoutMovements = function () {
     } else if (document.getElementById('time-page')) {
 
       genBtn.addEventListener('click', handleTime);
+    } else if (document.getElementById('workout-card')) {
+      // INVOKE GENERATE WORKOUT CARD FUNCTION
     }
   };
+
   
 
   
-  // nextBtn.removeEventListener('click', handleType);
   
-  /* **********************************************
-  LOCAL STORAGE
-  ********************************************** */
- 
- // STEP 1: STRINGIFY DATA
- // let stringifiedProducts = JSON.stringify(allProductsArr);
- 
- // STEP 2: ADD TO LOCAL STORAGE
- // localStorage.setItem('products', stringifiedProducts);
 
