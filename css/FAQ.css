@@ -1,0 +1,45 @@
+article {
+  margin-left: auto;
+  margin-right: auto;
+  background-color:var(--secondary-grey);
+  margin-top: 35px;
+  border-radius: 5px;
+  width: 600px;
+  height: 800px;
+  display: flex; 
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  margin-top: 50px;
+  color:var(--primary-darkBlue);
+  font-size: 36px;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  margin-top: 50px;
+  color:var(--primary-darkBlue);
+  font-size: 18;
+  text-align: center;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 500px;
+  color:var(--primary-darkBlue);
+  text-align: center;
+  line-height: 130%;
+}
+
+ul {
+  margin-left: auto;
+  margin-right: auto;
+}
