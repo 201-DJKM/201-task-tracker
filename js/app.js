@@ -232,7 +232,7 @@ function renderCurrWorkout() {
   let parsedWorkCard = JSON.parse(retrievedWorkCard);
 
   for (let i = 0; i < parsedWorkCard.numOfMovements; i++) {
-    let newMovement = document.createElement('h2');
+    let newMovement = document.createElement('h3');
     workoutCard.appendChild(newMovement);
     newMovement.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0];
     let newSteps = document.createElement('p');
