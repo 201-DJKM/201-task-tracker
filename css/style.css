@@ -13,10 +13,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-body *{
-  /* border: 1px solid red; */
+main{
+margin-top: 40px;
+min-height:50vh;
 }
-
 /* ++++++++ HEADER RULES ++++++++++++ */
 
 header {
@@ -24,9 +24,7 @@ header {
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 1em 1em 0;
-  /* background-color: var(--primary-darkBlue); */
   color:var(--primary-darkBlue);
-
 }
 h1{
   display: none;
@@ -49,8 +47,8 @@ header>ul{
   background-color:var(--secondary-green);
   border-radius: 23px;
   height:25px;
-  width:140px;
-  padding:10px 0px 0px 8px;
+  width:120px;
+  padding:10px 0px 0px 10px;
 }
 
 li a{
@@ -69,6 +67,7 @@ header a:hover{
 /* ++++++++++++ FOOTER RULES +++++++++++++++ */
 
 footer{
+  flex:none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-rows: minmax(100px,auto);
@@ -117,8 +116,8 @@ footer a:hover{
 }
 hr{
   display: block;
-  width:125%;
-  margin: 25px 0px 25px -20px;
+  width:101%;
+  margin: 25px 0px 25px -.5%;
 }
 #footer-copyright-section p:first-of-type{
   display:inline-flex;
