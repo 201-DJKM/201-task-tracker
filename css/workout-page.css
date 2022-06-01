@@ -5,7 +5,8 @@ article {
   margin-top: 35px;
   border-radius: 5px;
   width: 600px;
-  height: 600px;
+  height: fit-content;
+  padding-bottom: 60px;
   display: flex;
   margin-bottom: 40px;
 }
@@ -22,22 +23,24 @@ h2 {
 
 h3 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 650;
   margin-top: 50px;
   color: var(--primary-darkBlue);
   font-size: 18;
   text-align: left;
+  padding-left: 25px;
 }
 
 p {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   margin-top: 10px;
-  margin-bottom: 25px;
   margin-right: 10px;
   max-width: 450px;
   color: var(--primary-darkBlue);
   text-align: left;
+  line-height: 150%;
+  padding-left: 35px;
 }
 
 ul {
