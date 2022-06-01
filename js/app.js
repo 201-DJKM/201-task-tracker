@@ -132,7 +132,8 @@ Workout.prototype.generateWorkoutMovements = function () {
 // RANDOM # GENERATOR
 function randNum(max) {
   return Math.floor(Math.random() * max);
-}
+};
+
 
 // WORKOUT CARD GENERATOR
 function workoutCardGenerator() {
@@ -174,7 +175,9 @@ function handleType(event) {
     }
   }
 
-}
+
+};
+
 
 // CLICK HANDLER FOR --TIME-- SELECTION
 function handleTime(event) {
@@ -184,7 +187,9 @@ function handleTime(event) {
   for (let i = 0; i < woTime.length; i++) {
     if (woTime[i].checked) {
 
+
       console.log(woTime[i].value);
+
       let workoutTime = woTime[i].value;
 
       // STORE TIME LOCALLY
@@ -213,7 +218,8 @@ function handleTime(event) {
     }
   }
 
-}
+};
+
 
 //****************************************
 //            EVENT LISTENERS
