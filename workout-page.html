@@ -7,6 +7,7 @@
   <title>Take Ten</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/workout-page.css">
 
 </head>
 
@@ -27,20 +28,24 @@
       </ul>
     </header>
 
-    <main id="workout">
-      <h1>Below is your workout for today.</h1>
-      <article id="workout-card">
-        <h2>Movement One</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        <h2>Movement Two</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        <h2>Movement Three</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        <h2>Movement Four</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    <h2>Below is your workout<br> 
+      for today.</h2>
+    <main id="new-workout">
+      <div class="wrapper">
+      <article class="new-workout-card-one">
+      <ul>
+        <h3>Movement One</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <h3>Movement Two</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <h3>Movement Three</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <h3>Movement Four</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+      </ul>
       </article>
-    </main>
 
+      <button id="refresh" onclick="location.href='#'" type="button">Generate New Circuit</button>
 
     <footer>
       <img id="footer-logo" src="" alt="Take Ten Logo">
