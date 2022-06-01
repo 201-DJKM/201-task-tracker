@@ -21,7 +21,7 @@
 
 #daily-quote{
   width:80%;
-
+  text-shadow: rgb(3, 23, 77) 1px 0 10px;
 }
 
 fieldset{
