@@ -270,8 +270,3 @@ window.onload = (event) => {
   }
 };
 
-
-
-
-
-
