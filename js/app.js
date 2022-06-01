@@ -119,7 +119,7 @@ Workout.prototype.generateWorkoutMovements = function () {
 
 };
 
-  // *********************************************
+// *********************************************
   //     INSTANTIATION & LOCAL STORAGE PT 2
   // *********************************************
   // console.log(new Workout('stretch', '10'));
@@ -154,6 +154,7 @@ Workout.prototype.generateWorkoutMovements = function () {
     let woType = document.getElementsByName('radio');
     for (let i = 0; i < woType.length; i++) {
       if (woType[i].checked) {
+
         console.log(woType[i].value)
         let workoutType = woType[i].value;
         // STORE TYPE LOCALLY
@@ -182,6 +183,7 @@ Workout.prototype.generateWorkoutMovements = function () {
     let woTime = document.getElementsByName('radio');
     for (let i = 0; i < woTime.length; i++) {
       if (woTime[i].checked) {
+
         console.log(woTime[i].value)
         let workoutTime = woTime[i].value;
 
@@ -231,11 +233,6 @@ Workout.prototype.generateWorkoutMovements = function () {
       // INVOKE GENERATE WORKOUT CARD FUNCTION
     }
   };
-
-
-
-
-
 
   
 
