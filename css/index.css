@@ -2,22 +2,15 @@ main{
   margin-bottom: 50px;
 }
 
-/* #grid-wrapper{
-  display: grid;
-  grid-template-columns: 1fr,1fr,1fr,1fr;
-  grid-auto-rows: minmax(100px,auto);
-
-} */
-
 #dq-section{
   display:flex;
   justify-content: center;
   align-items: center;
-  height:10em;
+  min-height: 16em;
   width:100%;
   background-color: var(--secondary-grey);
   background-size: auto;
-  background-position: 25% 75%;
+  background-position: 50% 65%;
   background-repeat: no-repeat; 
 }
 
@@ -27,6 +20,7 @@ main{
   font-size: x-large;
   font-weight: 800;
   text-shadow: rgb(3, 23, 77) 1px 0 10px;
+  text-align: center;
 }
 
 fieldset{
@@ -65,6 +59,7 @@ legend{
   opacity: 0;
   cursor: pointer;
 }
+
 /* Create a custom radio button */
 .selector {
   position: absolute;
@@ -75,6 +70,9 @@ legend{
   border: 2px solid var(--primary-blue);
   border-radius: 5%;
   
+}
+.selector:focus{
+  border: 5px solid orange;
 }
 #stretchicon{
   content: url(../img/stretchingicon.png);
@@ -124,51 +122,26 @@ input{
 /* +++++++++++ End of Custom Radio Buttons +++++++++++++*/
 
 #next-btn{
-  /* display: block;
-  margin-top: 40px;
-  margin-left: 110px;
-  height:25px;
-  width:140px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 23px;
-  border:none;
-  color:var(--primary-darkBlue);
-  background-color:  rgba(var(--secondary-green-rgb),0.45); */
   display: block;
-  margin: 40px 0px 0px 110px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  margin-left: 110px;
   height: 55px;
   width: 225px;
   font-size: 16px;
   font-weight: 600;
   color: #06D6A0;
-  box-shadow: 2px 4px 4px #06D6A0;
-  border-top: 1px solid darkgray;
-  border-left: 1px solid darkgray;
-  border-bottom: 2px solid #24ad88;
-  border-right: 2px solid #24ad88;
   border-radius: 30px;
-  background-image: conic-gradient(#85dfc7,#24AD88,#23584b,#85dfc7);
+  border-color: #06D6A0;
   background-color: #C1F5E7;
 }
 
 #next-btn:hover{
-  /* background-color:rgba(var(--secondary-green-rgb),1.0); 
-  color: var(--secondary-white);
-  text-decoration:  underline 3px solid var(--secondary-white); */
   background-color: rgba(var(--secondary-green-rgb), 1.0);
   color: var(--secondary-white);
   text-decoration: solid var(--secondary-white);
-  background-image: conic-gradient(#23584b,#4ea38c,#37b291,#0f5744);
-  box-shadow: 1px 3px 4px #06D6A0;
+  cursor: pointer;
 }
 
-#next-btn:active{
-  box-shadow:0px 0px;
-  border:5px solid #23584b;
-}
-/* #next-btn a:visited{
-  color: var(--primary-darkBlue);
-} */
 
 

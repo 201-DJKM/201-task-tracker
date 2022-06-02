@@ -51,6 +51,7 @@ ul {
   background-color: rgba(var(--secondary-green-rgb), 1.0);
   color: var(--secondary-white);
   text-decoration: solid var(--secondary-white);
+  cursor: pointer;
 }
 
 #refresh {
