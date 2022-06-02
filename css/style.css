@@ -17,6 +17,13 @@ main{
 margin-top: 40px;
 min-height:50vh;
 }
+
+#grid-wrapper{
+  display: grid;
+  grid-template-columns: 1fr,1fr,1fr,1fr;
+  grid-auto-rows: minmax(100px,auto);
+
+}
 /* ++++++++ HEADER RULES ++++++++++++ */
 
 header {
@@ -75,6 +82,12 @@ footer{
   padding: 0px 10px;
   background-color: var(--primary-darkBlue);
   color: var(--secondary-white);
+}
+footer p{
+  color:var(--secondary-white);
+}
+footer h3{
+  color:var(--secondary-white);
 }
 
 footer a{

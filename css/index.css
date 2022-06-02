@@ -2,13 +2,12 @@ main{
   margin-bottom: 50px;
 }
 
-
-#grid-wrapper{
+/* #grid-wrapper{
   display: grid;
   grid-template-columns: 1fr,1fr,1fr,1fr;
   grid-auto-rows: minmax(100px,auto);
 
-}
+} */
 
 #dq-section{
   display:flex;
