@@ -9,23 +9,24 @@ main{
   grid-auto-rows: minmax(100px,auto);
 
 }
+
 #dq-section{
   display:flex;
   justify-content: center;
   align-items: center;
   height:10em;
+  width:100%;
   background-color: var(--secondary-grey);
-  background-image: url("/img/emptyfield.jpg");
   background-size: auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: var(--secondary-green);
-  font-size: x-large;
-  font-weight: 800;
+  background-position: 25% 75%;
+  background-repeat: no-repeat; 
 }
 
 #daily-quote{
-  width:80%;
+  width:70%;
+  color: var(--secondary-green);
+  font-size: x-large;
+  font-weight: 800;
   text-shadow: rgb(3, 23, 77) 1px 0 10px;
 }
 
