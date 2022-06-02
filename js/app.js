@@ -278,13 +278,16 @@ function handleTime(event) {
 function renderCurrWorkout() {
   //create workout card
   let workoutCard = document.getElementById('workout-card');
-
-
+  let aaa = localStorage.getItem('Stored-Workouts');
+  let bbb = JSON.parse(aaa);
+  workoutHistory = bbb;
+  
+  
   // Retrieve stored object
   let retrievedWorkCard = localStorage.getItem('ChosenWorkout');
   // Parse stored Object
   let parsedWorkCard = JSON.parse(retrievedWorkCard);
-
+  
   for (let i = 0; i < parsedWorkCard.numOfMovements; i++) {
     let newMovement = document.createElement('h3');
     workoutCard.appendChild(newMovement);
@@ -295,7 +298,22 @@ function renderCurrWorkout() {
     workoutHistory.push([parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0], parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1]]);
   }
   console.log(workoutHistory);
+  
+  let stringifiedStoredWorkouts = JSON.stringify(workoutHistory);
+  localStorage.setItem('Stored-Workouts', stringifiedStoredWorkouts);
+  let retrievedWorkout = localStorage.getItem('Stored-Workouts', stringifiedStoredWorkouts);
+  let parsedRetrievedWorkout = JSON.parse(retrievedWorkout);
+  // parsedRetrievedWorkout.push(workoutHistory);
+
+  stringifiedStoredWorkouts = JSON.stringify(parsedRetrievedWorkout);
+  localStorage.setItem('Stored-Workouts', stringifiedStoredWorkouts);
+
+  // happyWorkouts.push(stringifiedStoredWorkouts);
+  // console.log(happyWorkouts);
+  // console.log(stringifiedStoredWorkouts);
 }
+
+
 
 // renderCurrWorkout();
 
