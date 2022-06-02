@@ -9,7 +9,7 @@ article {
   margin-bottom: 40px;
 }
 
-.wrapper {
+#wrapper {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, 1fr);

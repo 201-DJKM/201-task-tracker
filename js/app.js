@@ -43,9 +43,9 @@ let nextBtn = document.getElementById('next-btn');
 let genBtn = document.getElementById('gen-btn');
 
 // DOM tag for Random Quote Section
-let quoteSect= document.getElementById('dq-section');
+let quoteSect = document.getElementById('dq-section');
 // Random Image Array for Quote Background
-let quoteImagePathArr=['../img/dmitriy-frantsev-unsplash.jpg',
+let quoteImagePathArr = ['../img/dmitriy-frantsev-unsplash.jpg',
   '../img/emptyfield.jpg',
   '../img/kalen-emsley-unsplash.jpg',
   '../img/kelli-dougal-unsplash.jpg',
@@ -53,7 +53,7 @@ let quoteImagePathArr=['../img/dmitriy-frantsev-unsplash.jpg',
   '../img/remi-thorel-unsplash.jpg'];
 
 // Random Quote Array
-let quoteTextArray=['"Be excellent to each other. And... PARTY ON, DUDES!" - Abe Lincoln (Bill & Ted\'s Excellent Adventure',
+let quoteTextArray = ['"Be excellent to each other. And... PARTY ON, DUDES!" - Abe Lincoln (Bill & Ted\'s Excellent Adventure',
   '"I usually take a two-hour nap from one to four” - Yogi Berra',
   '"Hi baby abs!! I see you!!! I hope to meet your other ab friends soon. (Yes, I\'m talking to my muscles. I\'ve never met most of them before.)” - Khloe Kardashian',
   '"I already know what giving up feels like. I want to see what happens if I don\'t." - Neila Ray',
@@ -166,24 +166,16 @@ Workout.prototype.generateWorkoutMovements = function () {
 // RANDOM # GENERATOR
 function randNum(max) {
   return Math.floor(Math.random() * max);
-};
-
-
-// WORKOUT CARD GENERATOR
-function workoutCardGenerator() {
-
 }
 
-
-function generateRandomQuote(){
-  let rndImage=quoteImagePathArr[randNum(quoteImagePathArr.length)];
-  quoteSect.style.backgroundImage = 'url('+rndImage+')';
-  let rndQuote=quoteTextArray[randNum(quoteTextArray.length)];
-  let dailyQuote=document.createElement('p');
-  dailyQuote.textContent=rndQuote;
-  dailyQuote.setAttribute('id','daily-quote');
+function generateRandomQuote() {
+  let rndImage = quoteImagePathArr[randNum(quoteImagePathArr.length)];
+  quoteSect.style.backgroundImage = 'url(' + rndImage + ')';
+  let rndQuote = quoteTextArray[randNum(quoteTextArray.length)];
+  let dailyQuote = document.createElement('p');
+  dailyQuote.textContent = rndQuote;
+  dailyQuote.setAttribute('id', 'daily-quote');
   quoteSect.appendChild(dailyQuote);
-
 }
 
 // *********************************************
@@ -211,20 +203,10 @@ function handleType(event) {
       };
       // STEP 2: STRINGIFY DATA
       let workoutObjectJSON = JSON.stringify(workoutObject);
-
       localStorage.setItem('CurrentWO', workoutObjectJSON);
-      // PROOF OF LIFE (STORED DATA)
-      let retrievedData = localStorage.getItem('CurrentWO');
-      let parsedRetrievedData = JSON.parse(retrievedData);
-
-      console.log(parsedRetrievedData);
     }
   }
-
-
-};
-
-
+}
 // CLICK HANDLER FOR --TIME-- SELECTION
 function handleTime(event) {
   event.preventDefault();
@@ -232,12 +214,7 @@ function handleTime(event) {
   let woTime = document.getElementsByName('radio');
   for (let i = 0; i < woTime.length; i++) {
     if (woTime[i].checked) {
-
-
-      console.log(woTime[i].value);
-
       let workoutTime = woTime[i].value;
-
       // STORE TIME LOCALLY
       // STEP 1: RETRIEVE STORED OBJECT
       let retrievedObject = localStorage.getItem('CurrentWO');
@@ -249,45 +226,36 @@ function handleTime(event) {
       let stringifiedObjectWithTime = JSON.stringify(parsedRetrievedObject);
       //STEP 5: STORE AGAIN
       localStorage.setItem('CurrentWO', stringifiedObjectWithTime);
-      //**********dom */
-      // localStorage.setItem(workoutHistory,stringifiedNewWorkout);
       //STEP 6: PROOF OF LIFE
       let currentWorkout = new Workout(parsedRetrievedObject.type, parsedRetrievedObject.time);
-      console.log(currentWorkout);
-
-      // workoutHistory.push[currentWorkout];
-      
       // STORE NEW WORKOUT IN LOCAL STORAGE
       // STRINGIFY WORKOUT
       let stringifiedNewWorkout = JSON.stringify(currentWorkout);
       // STORE WORKOUT
       localStorage.setItem('ChosenWorkout', stringifiedNewWorkout);
-      // let localWorkoutHistory = localStorage.getItem('ChosenWorkout');
-      // localWorkoutHistory.push(stringifiedNewWorkout);
-      //**************************************/
-      // workoutHistory.push(currentWorkout);
-      console.log(currentWorkout);
       //TAKE USER TO WORKOUT PAGE
       window.location.href = 'workout-page.html';
     }
   }
 
-};
-
+}
 
 function renderCurrWorkout() {
   //create workout card
   let workoutCard = document.getElementById('workout-card');
-  let aaa = localStorage.getItem('Stored-Workouts');
-  let bbb = JSON.parse(aaa);
-  workoutHistory = bbb;
-  
-  
+  // create storage array for workout history 
+  let chosenArr=[];
+  // load history from storage if it exists
+  if (localStorage.getItem('Stored-Workouts')) {
+    let storedHistory = localStorage.getItem('Stored-Workouts');
+    let parsedStoredHistory = JSON.parse(storedHistory);
+    workoutHistory = parsedStoredHistory;
+  }
   // Retrieve stored object
   let retrievedWorkCard = localStorage.getItem('ChosenWorkout');
   // Parse stored Object
   let parsedWorkCard = JSON.parse(retrievedWorkCard);
-  
+
   for (let i = 0; i < parsedWorkCard.numOfMovements; i++) {
     let newMovement = document.createElement('h3');
     workoutCard.appendChild(newMovement);
@@ -295,34 +263,44 @@ function renderCurrWorkout() {
     let newSteps = document.createElement('p');
     workoutCard.appendChild(newSteps);
     newSteps.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1];
-    workoutHistory.push([parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0], parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1]]);
+    // pushes 2 unit array onto WO History
+    chosenArr.push([parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0], parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1]]);
   }
-  console.log(workoutHistory);
-  
+  workoutHistory.push(chosenArr);
+  // commit WO history to local storage
   let stringifiedStoredWorkouts = JSON.stringify(workoutHistory);
   localStorage.setItem('Stored-Workouts', stringifiedStoredWorkouts);
-  let retrievedWorkout = localStorage.getItem('Stored-Workouts', stringifiedStoredWorkouts);
-  let parsedRetrievedWorkout = JSON.parse(retrievedWorkout);
-  // parsedRetrievedWorkout.push(workoutHistory);
-
-  stringifiedStoredWorkouts = JSON.stringify(parsedRetrievedWorkout);
-  localStorage.setItem('Stored-Workouts', stringifiedStoredWorkouts);
-
-  // happyWorkouts.push(stringifiedStoredWorkouts);
-  // console.log(happyWorkouts);
-  // console.log(stringifiedStoredWorkouts);
 }
 
+// function renderWorkoutHistory() {
+//     //create workout card
+//     let workoutCard = document.getElementById('workout-card');
+//     // create storage array for workout history 
+//     let chosenArr=[];
+//     // load history from storage if it exists
+//     if (localStorage.getItem('Stored-Workouts')) {
+//       let storedHistory = localStorage.getItem('Stored-Workouts');
+//       let parsedStoredHistory = JSON.parse(storedHistory);
+//       workoutHistory = parsedStoredHistory;
+//     }
+//     // Retrieve stored object
+//     let retrievedWorkCard = localStorage.getItem('ChosenWorkout');
+//     // Parse stored Object
+//     let parsedWorkCard = JSON.parse(retrievedWorkCard);
+  
+//     for (let i = 0; i < parsedWorkCard.numOfMovements; i++) {
+//       let newMovement = document.createElement('h3');
+//       workoutCard.appendChild(newMovement);
+//       newMovement.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0];
+//       let newSteps = document.createElement('p');
+//       workoutCard.appendChild(newSteps);
+//       newSteps.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1];
+//       // pushes 2 unit array onto WO History
+//       chosenArr.push([parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0], parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1]]);
+
+// }
 
 
-// renderCurrWorkout();
-
-// Retrieve stored object
-// let retrievedWorkCard = localStorage.getItem('ChosenWorkout');
-// // Parse stored Object
-// let parsedWorkCard = JSON.parse(retrievedWorkCard);
-
-// console.log(parsedWorkCard);
 
 
 //****************************************
@@ -332,7 +310,7 @@ function renderCurrWorkout() {
 // typeForm.addEventListener('submit', handleSubmit);
 // nextBtn.removeEventListener('click', handleType);
 
-window.onload = (event) => {
+window.onload = () => {
   if (document.getElementById('type-page')) {
     nextBtn.addEventListener('click', handleType);
     generateRandomQuote();
@@ -340,6 +318,8 @@ window.onload = (event) => {
     genBtn.addEventListener('click', handleTime);
   } else if (document.getElementById('workout-card')) {
     renderCurrWorkout();
+  } else if (document.getElementById('past-workout')){
+    renderWorkoutHistory();
   }
 };
 
