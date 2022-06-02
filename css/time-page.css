@@ -26,7 +26,6 @@ legend{
   margin-bottom: 15px;
   cursor: pointer;
   font-size: 22px;
-  background-color: var(--secondary-grey);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -46,6 +45,7 @@ legend{
   left: -75px;
   height: 50px;
   width: 65px;
+  border: 2px solid var(--primary-blue);
   border-radius: 5%;
   content: url(../img/timeicon.png);
 }

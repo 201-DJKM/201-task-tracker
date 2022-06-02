@@ -37,6 +37,7 @@ fieldset{
 legend{
   font-size: xx-large;
   font-weight: 800;
+  color:var(--primary-darkBlue);
   margin: 0px 0px 60px 66px;
 }
 
@@ -52,7 +53,6 @@ legend{
   margin-bottom: 15px;
   cursor: pointer;
   font-size: 22px;
-  background-color: var(--secondary-grey);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -72,7 +72,9 @@ legend{
   left: -75px;
   height: 50px;
   width: 65px;
+  border: 2px solid var(--primary-blue);
   border-radius: 5%;
+  
 }
 #stretchicon{
   content: url(../img/stretchingicon.png);
@@ -122,7 +124,7 @@ input{
 /* +++++++++++ End of Custom Radio Buttons +++++++++++++*/
 
 #next-btn{
-  display: block;
+  /* display: block;
   margin-top: 40px;
   margin-left: 110px;
   height:25px;
@@ -132,17 +134,41 @@ input{
   border-radius: 23px;
   border:none;
   color:var(--primary-darkBlue);
-  background-color:  rgba(var(--secondary-green-rgb),0.45);
+  background-color:  rgba(var(--secondary-green-rgb),0.45); */
+  display: block;
+  margin: 40px 0px 0px 110px;
+  height: 55px;
+  width: 225px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #06D6A0;
+  box-shadow: 2px 4px 4px #06D6A0;
+  border-top: 1px solid darkgray;
+  border-left: 1px solid darkgray;
+  border-bottom: 2px solid #24ad88;
+  border-right: 2px solid #24ad88;
+  border-radius: 30px;
+  background-image: conic-gradient(#85dfc7,#24AD88,#23584b,#85dfc7);
+  background-color: #C1F5E7;
 }
 
 #next-btn:hover{
-  background-color:rgba(var(--secondary-green-rgb),1.0); 
+  /* background-color:rgba(var(--secondary-green-rgb),1.0); 
   color: var(--secondary-white);
-  text-decoration:  underline 3px solid var(--secondary-white);
+  text-decoration:  underline 3px solid var(--secondary-white); */
+  background-color: rgba(var(--secondary-green-rgb), 1.0);
+  color: var(--secondary-white);
+  text-decoration: solid var(--secondary-white);
+  background-image: conic-gradient(#23584b,#4ea38c,#37b291,#0f5744);
+  box-shadow: 1px 3px 4px #06D6A0;
+}
 
+#next-btn:active{
+  box-shadow:0px 0px;
+  border:5px solid #23584b;
 }
-#next-btn a:visited{
+/* #next-btn a:visited{
   color: var(--primary-darkBlue);
-}
+} */
 
 
