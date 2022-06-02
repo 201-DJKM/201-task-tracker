@@ -66,7 +66,10 @@ function Workout(woType, woTime) {
   this.selectedTime = woTime;
 
   // NUMBER OF MOVEMENTS (BASED ON TIME ENTRY)
-  this.numOfMovements = Math.floor(parseInt(woTime) / 2);
+  this.numOfMovements = 0;
+
+  // METHOD TO GET NUMBER OF MOVEMENTS
+  this.getNumOfMoves();
 
   // PHOTOS FROM RELEVANT PHOTO ARRAY
   this.photoArr = [];
@@ -95,6 +98,18 @@ function Workout(woType, woTime) {
 //   let randoMovement = randNum(stretchBankArr.length);
 //   this.movementArr.push(stretchBankArr[randoMovement]);
 // }
+
+Workout.prototype.getNumOfMoves = function () {
+  if (this.selectedTime === '10') {
+    this.numOfMovements = 3;
+  } else if (this.selectedTime === '30') {
+    this.numOfMovements = 5;
+  } else if (this.selectedTime === '45') {
+    this.numOfMovements = 7;
+  } else {
+    this.numOfMovements = 10;
+  }
+}
 
 Workout.prototype.bankChooser = function () {
   if (this.type === 'stretch') {
@@ -205,7 +220,7 @@ function handleTime(event) {
       localStorage.setItem('CurrentWO', stringifiedObjectWithTime);
       //STEP 6: PROOF OF LIFE
       let currentWorkout = new Workout(parsedRetrievedObject.type, parsedRetrievedObject.time);
-
+      console.log(currentWorkout);
       // STORE NEW WORKOUT IN LOCAL STORAGE
       // STRINGIFY WORKOUT
       let stringifiedNewWorkout = JSON.stringify(currentWorkout);
@@ -244,11 +259,11 @@ function renderCurrWorkout() {
 // renderCurrWorkout();
 
 // Retrieve stored object
-let retrievedWorkCard = localStorage.getItem('ChosenWorkout');
-// Parse stored Object
-let parsedWorkCard = JSON.parse(retrievedWorkCard);
+// let retrievedWorkCard = localStorage.getItem('ChosenWorkout');
+// // Parse stored Object
+// let parsedWorkCard = JSON.parse(retrievedWorkCard);
 
-console.log(parsedWorkCard);
+// console.log(parsedWorkCard);
 
 
 //****************************************
@@ -263,7 +278,6 @@ window.onload = (event) => {
     nextBtn.addEventListener('click', handleType);
 
   } else if (document.getElementById('time-page')) {
-
     genBtn.addEventListener('click', handleTime);
   } else if (document.getElementById('workout-card')) {
     renderCurrWorkout();
