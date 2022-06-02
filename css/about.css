@@ -1,58 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
 
-:root{
-  --primary-lightBlue: #BFDBF7;
-  --primary-blue: #014F86;  
-  --primary-darkBlue: #012A4A;
-  --secondary-white: #FCFCFC;
-  --secondary-grey: #EFF0F2;
-  --secondary-green: #06D6A0;
-}
-
-#grid-wrapper{
-  display: grid;
-  grid-template-columns: 1fr,1fr,1fr,1fr;
-  grid-auto-rows: minmax(100px,auto);
-}
-
-/* ========Header======== */
-header {
-  display:flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 1em 1em 0;
-  background-color: var(--secondary-white);
-}
-
-h1{
-  visibility: hidden;
-}
-
-header>ul{
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  width:35%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
- }
-
- #link-myWorkouts{
-   background-color:var(--secondary-green);
-   background-size:125%;
-   border-radius: 5px;
- }
-
- li a{
-   text-decoration: none;
-   color: var(--secondary-grey);
- }
-
- a:visited {
-   color: var(--secondary-grey);
- }
-
-/* ========Main Content======== */
 #aboutSection {
   justify-content: center;
   background-color:var(--secondary-white);
@@ -90,7 +36,7 @@ header>ul{
     background-color: none;
   }
 
-  h3 {
+  h3:not(footer h3) {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     color:var(--primary-darkBlue);
@@ -102,7 +48,7 @@ header>ul{
     margin-top: 35px;
   }
 
-  p {
+  p:not(footer p){
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     margin-top: 10px;
@@ -132,51 +78,3 @@ header>ul{
     font-size: large;
     text-decoration: none;
   }
-
-
-/* ========Footer========  */
-
-  footer{
-    display: grid;
-    grid-template-columns: 1fr,1fr,1fr,1fr;
-    grid-auto-rows: minmax(100px,auto);
-    background-color: var(--primary-darkBlue);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    color: var(--secondary-grey);
-  }
-  
-  footer h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    color: var(--secondary-grey);
-    text-decoration: none;
-    margin-bottom: 20px;
-  }
-  
-  footer p {
-    justify-content: end;
-    color: var(--secondary-grey);
-  }
-
-  footer li{
-    margin-left: 30px;
-  }
-
-  #footer-logo-section{
-    grid-column: 1/2;
-  }
-  #footer-company-section{
-    grid-column: 2/3;
-  }
-  #footer-help-section{
-    grid-column: 3/4;
-  }
-  #footer-copyright-section{
-    grid-row: 2/3;
-    grid-column: 1/5;
-  }
-  #footer-copyright-section>p{
-    display:inline;
-  }
-  
