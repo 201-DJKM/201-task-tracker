@@ -42,6 +42,25 @@ let nextBtn = document.getElementById('next-btn');
 // DOM tag for Time-of-workout selection
 let genBtn = document.getElementById('gen-btn');
 
+// DOM tag for Random Quote Section
+let quoteSect= document.getElementById('dq-section');
+// Random Image Array for Quote Background
+let quoteImagePathArr=['../img/dmitriy-frantsev-unsplash.jpg',
+  '../img/emptyfield.jpg',
+  '../img/kalen-emsley-unsplash.jpg',
+  '../img/kelli-dougal-unsplash.jpg',
+  '../img/kenrick-mills-unsplash.jpg',
+  '../img/remi-thorel-unsplash.jpg'];
+
+// Random Quote Array
+let quoteTextArray=['"Be excellent to each other. And... PARTY ON, DUDES!" - Abe Lincoln (Bill & Ted\'s Excellent Adventure',
+  '"I usually take a two-hour nap from one to four” - Yogi Berra',
+  '"Hi baby abs!! I see you!!! I hope to meet your other ab friends soon. (Yes, I\'m talking to my muscles. I\'ve never met most of them before.)” - Khloe Kardashian',
+  '"I already know what giving up feels like. I want to see what happens if I don\'t." - Neila Ray',
+  '"Progress not perfection." - Kimberly Snyder',
+  '“Life isn\'t about waiting for the storm to pass, its about dancing in the rain.” - Greg Plitt'
+];
+
 // ***********CLICK MANAGEMENT****************
 
 
@@ -137,6 +156,18 @@ function randNum(max) {
 
 // WORKOUT CARD GENERATOR
 function workoutCardGenerator() {
+
+}
+
+
+function generateRandomQuote(){
+  let rndImage=quoteImagePathArr[randNum(quoteImagePathArr.length)];
+  quoteSect.style.backgroundImage = 'url('+rndImage+')';
+  let rndQuote=quoteTextArray[randNum(quoteTextArray.length)];
+  let dailyQuote=document.createElement('p');
+  dailyQuote.textContent=rndQuote;
+  dailyQuote.setAttribute('id','daily-quote');
+  quoteSect.appendChild(dailyQuote);
 
 }
 
@@ -261,7 +292,7 @@ console.log(parsedWorkCard);
 window.onload = (event) => {
   if (document.getElementById('type-page')) {
     nextBtn.addEventListener('click', handleType);
-
+    generateRandomQuote();
   } else if (document.getElementById('time-page')) {
 
     genBtn.addEventListener('click', handleTime);
