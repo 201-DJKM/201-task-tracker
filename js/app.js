@@ -107,7 +107,7 @@ function Workout(woType, woTime) {
 
   // ADD NEW WORKOUT TO WORKOUT HISTORY
   workoutHistory.push(this);
-
+  console.log(workoutHistory);
   // PROOF OF COMPLETION
   console.log('constructor complete');
 }
@@ -128,7 +128,7 @@ Workout.prototype.getNumOfMoves = function () {
   } else {
     this.numOfMovements = 10;
   }
-}
+};
 
 Workout.prototype.bankChooser = function () {
   if (this.type === 'stretch') {
@@ -249,16 +249,24 @@ function handleTime(event) {
       let stringifiedObjectWithTime = JSON.stringify(parsedRetrievedObject);
       //STEP 5: STORE AGAIN
       localStorage.setItem('CurrentWO', stringifiedObjectWithTime);
+      //**********dom */
+      // localStorage.setItem(workoutHistory,stringifiedNewWorkout);
       //STEP 6: PROOF OF LIFE
       let currentWorkout = new Workout(parsedRetrievedObject.type, parsedRetrievedObject.time);
       console.log(currentWorkout);
+
+      // workoutHistory.push[currentWorkout];
+      
       // STORE NEW WORKOUT IN LOCAL STORAGE
       // STRINGIFY WORKOUT
       let stringifiedNewWorkout = JSON.stringify(currentWorkout);
       // STORE WORKOUT
       localStorage.setItem('ChosenWorkout', stringifiedNewWorkout);
-
-
+      // let localWorkoutHistory = localStorage.getItem('ChosenWorkout');
+      // localWorkoutHistory.push(stringifiedNewWorkout);
+      //**************************************/
+      // workoutHistory.push(currentWorkout);
+      console.log(currentWorkout);
       //TAKE USER TO WORKOUT PAGE
       window.location.href = 'workout-page.html';
     }
@@ -284,7 +292,9 @@ function renderCurrWorkout() {
     let newSteps = document.createElement('p');
     workoutCard.appendChild(newSteps);
     newSteps.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1];
+    workoutHistory.push([parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0], parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1]]);
   }
+  console.log(workoutHistory);
 }
 
 // renderCurrWorkout();
