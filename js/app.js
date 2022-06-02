@@ -244,7 +244,7 @@ function renderCurrWorkout() {
   //create workout card
   let workoutCard = document.getElementById('workout-card');
   // create storage array for workout history 
-  let chosenArr=[];
+  let chosenArr = [];
   // load history from storage if it exists
   if (localStorage.getItem('Stored-Workouts')) {
     let storedHistory = localStorage.getItem('Stored-Workouts');
@@ -272,35 +272,33 @@ function renderCurrWorkout() {
   localStorage.setItem('Stored-Workouts', stringifiedStoredWorkouts);
 }
 
-// function renderWorkoutHistory() {
-//     //create workout card
-//     let workoutCard = document.getElementById('workout-card');
-//     // create storage array for workout history 
-//     let chosenArr=[];
-//     // load history from storage if it exists
-//     if (localStorage.getItem('Stored-Workouts')) {
-//       let storedHistory = localStorage.getItem('Stored-Workouts');
-//       let parsedStoredHistory = JSON.parse(storedHistory);
-//       workoutHistory = parsedStoredHistory;
-//     }
-//     // Retrieve stored object
-//     let retrievedWorkCard = localStorage.getItem('ChosenWorkout');
-//     // Parse stored Object
-//     let parsedWorkCard = JSON.parse(retrievedWorkCard);
-  
-//     for (let i = 0; i < parsedWorkCard.numOfMovements; i++) {
-//       let newMovement = document.createElement('h3');
-//       workoutCard.appendChild(newMovement);
-//       newMovement.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0];
-//       let newSteps = document.createElement('p');
-//       workoutCard.appendChild(newSteps);
-//       newSteps.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1];
-//       // pushes 2 unit array onto WO History
-//       chosenArr.push([parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0], parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1]]);
-
-// }
-
-
+function renderWorkoutHistory() {
+  let maxHistoryShown = 8;
+  let divWrapper = document.getElementById('wrapper');
+  // load history from storage if it exists
+  if (localStorage.getItem('Stored-Workouts')) {
+    let storedHistory = localStorage.getItem('Stored-Workouts');
+    let parsedStoredHistory = JSON.parse(storedHistory);
+    workoutHistory = parsedStoredHistory;
+    for (let i = workoutHistory.length-1; i > workoutHistory.length-1-maxHistoryShown; i--) {
+      let newArticle = document.createElement('article');
+      divWrapper.appendChild(newArticle);
+      for (let j = 0; j < workoutHistory[i].length; j++) {
+        let newUl = document.createElement('ul');
+        newArticle.appendChild(newUl);
+        let newH3 = document.createElement('h3');
+        newUl.appendChild(newH3);
+        newH3.textContent = workoutHistory[i][j][0];
+        let newP = document.createElement('p');
+        newUl.appendChild(newP);
+        newP.textContent = workoutHistory[i][j][1];
+      }
+    }
+  }
+  else {
+    console.log("NO history found in local storage");
+  }
+}
 
 
 //****************************************
@@ -318,8 +316,7 @@ window.onload = () => {
     genBtn.addEventListener('click', handleTime);
   } else if (document.getElementById('workout-card')) {
     renderCurrWorkout();
-  } else if (document.getElementById('past-workout')){
+  } else if (document.getElementById('past-workout')) {
     renderWorkoutHistory();
   }
 };
-
