@@ -46,12 +46,12 @@ let refreshBtn=document.getElementById('refresh');
 // DOM tag for Random Quote Section
 let quoteSect = document.getElementById('dq-section');
 // Random Image Array for Quote Background
-let quoteImagePathArr = ['../img/dmitriy-frantsev-unsplash.jpg',
-  '../img/emptyfield.jpg',
-  '../img/kalen-emsley-unsplash.jpg',
-  '../img/kelli-dougal-unsplash.jpg',
-  '../img/kenrick-mills-unsplash.jpg',
-  '../img/remi-thorel-unsplash.jpg'];
+let quoteImagePathArr = ['img/dmitriy-frantsev-unsplash.jpg',
+  'img/emptyfield.jpg',
+  'img/kalen-emsley-unsplash.jpg',
+  'img/kelli-dougal-unsplash.jpg',
+  'img/kenrick-mills-unsplash.jpg',
+  'img/remi-thorel-unsplash.jpg'];
 
 // Random Quote Array
 let quoteTextArray = ['"Be excellent to each other. And... PARTY ON, DUDES!" - Abe Lincoln (Bill & Ted\'s Excellent Adventure)',
