@@ -51,6 +51,7 @@ ul {
   background-color: rgba(var(--secondary-green-rgb), 1.0);
   color: var(--secondary-white);
   text-decoration: solid var(--secondary-white);
+  cursor: pointer;
 }
 
 #refresh {
@@ -67,4 +68,4 @@ ul {
   border-radius: 30px;
   border-color: #06D6A0;
   background-color: #C1F5E7;
-  
+}

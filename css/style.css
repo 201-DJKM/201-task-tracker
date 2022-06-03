@@ -11,6 +11,7 @@
   --secondary-green: #06d6a0;
   --secondary-green-rgb: 6,214,160;
   font-family: 'Montserrat', sans-serif;
+  color:var(--primary-darkBlue);
 }
 
 main{

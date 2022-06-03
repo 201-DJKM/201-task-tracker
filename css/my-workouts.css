@@ -4,12 +4,13 @@ article {
   margin-top: 35px;
   border-radius: 5px;
   width: 600px;
-  height: 600px;
+  height: fit-content;
   display: flex; 
+  flex-direction: column;
   margin-bottom: 40px;
 }
 
-.wrapper {
+#wrapper {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, 1fr);
