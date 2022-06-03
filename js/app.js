@@ -42,6 +42,7 @@ let nextBtn = document.getElementById('next-btn');
 // DOM tag for Time-of-workout selection
 let genBtn = document.getElementById('gen-btn');
 
+let refreshBtn=document.getElementById('refresh');
 // DOM tag for Random Quote Section
 let quoteSect = document.getElementById('dq-section');
 // Random Image Array for Quote Background
@@ -53,7 +54,7 @@ let quoteImagePathArr = ['../img/dmitriy-frantsev-unsplash.jpg',
   '../img/remi-thorel-unsplash.jpg'];
 
 // Random Quote Array
-let quoteTextArray = ['"Be excellent to each other. And... PARTY ON, DUDES!" - Abe Lincoln (Bill & Ted\'s Excellent Adventure',
+let quoteTextArray = ['"Be excellent to each other. And... PARTY ON, DUDES!" - Abe Lincoln (Bill & Ted\'s Excellent Adventure)',
   '"I usually take a two-hour nap from one to four” - Yogi Berra',
   '"Hi baby abs!! I see you!!! I hope to meet your other ab friends soon. (Yes, I\'m talking to my muscles. I\'ve never met most of them before.)” - Khloe Kardashian',
   '"I already know what giving up feels like. I want to see what happens if I don\'t." - Neila Ray',
@@ -102,21 +103,9 @@ function Workout(woType, woTime) {
   // POPULATE THIS.MOVEMENTARR[]
   this.generateWorkoutMovements();
 
-  // OUTPUT: INVOKE WORKOUT RENDER FUNCTION 
-  // this.renderWorkout();
-
   // ADD NEW WORKOUT TO WORKOUT HISTORY
   workoutHistory.push(this);
-  console.log(workoutHistory);
-  // PROOF OF COMPLETION
-  console.log('constructor complete');
 }
-
-// METHODS TO PROTOTYPES
-// for (let i = 0; i < this.numOfMovements; i++) {
-//   let randoMovement = randNum(stretchBankArr.length);
-//   this.movementArr.push(stretchBankArr[randoMovement]);
-// }
 
 Workout.prototype.getNumOfMoves = function () {
   if (this.selectedTime === '10') {
@@ -255,7 +244,9 @@ function renderCurrWorkout() {
   let retrievedWorkCard = localStorage.getItem('ChosenWorkout');
   // Parse stored Object
   let parsedWorkCard = JSON.parse(retrievedWorkCard);
-
+  while (workoutCard.lastChild) {
+    workoutCard.removeChild(workoutCard.lastChild);
+  }
   for (let i = 0; i < parsedWorkCard.numOfMovements; i++) {
     let newMovement = document.createElement('h3');
     workoutCard.appendChild(newMovement);
@@ -300,6 +291,14 @@ function renderWorkoutHistory() {
   }
 }
 
+function generateNewWorkout(){
+  let sameTypeAndTime;
+  sameTypeAndTime=JSON.parse(localStorage.getItem('CurrentWO'));
+  let genNewWorkout=new Workout(sameTypeAndTime.type,sameTypeAndTime.time);
+  let stringifiedGenNewWorkout = JSON.stringify(genNewWorkout);
+  localStorage.setItem('ChosenWorkout', stringifiedGenNewWorkout);
+  renderCurrWorkout();
+}
 
 //****************************************
 //            EVENT LISTENERS
@@ -315,6 +314,7 @@ window.onload = () => {
   } else if (document.getElementById('time-page')) {
     genBtn.addEventListener('click', handleTime);
   } else if (document.getElementById('workout-card')) {
+    refreshBtn.addEventListener('click',generateNewWorkout);
     renderCurrWorkout();
   } else if (document.getElementById('past-workout')) {
     renderWorkoutHistory();
