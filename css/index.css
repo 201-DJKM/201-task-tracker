@@ -36,8 +36,6 @@ legend{
 }
 
 /* +++++++++++ Start of Custom Radio Buttons +++++++++++++*/
-
-/* The container */
 .button {
   display: inline;
   position: relative;
@@ -53,14 +51,12 @@ legend{
   user-select: none;
 }
 
-/* Hide the browser's default radio button */
 .button input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
-/* Create a custom radio button */
 .selector {
   position: absolute;
   top:0px;
@@ -68,12 +64,9 @@ legend{
   height: 50px;
   width: 65px;
   border: 2px solid var(--primary-blue);
-  border-radius: 5%;
-  
+  border-radius: 5%;  
 }
-.selector:focus{
-  border: 5px solid orange;
-}
+
 #stretchicon{
   content: url(../img/stretchingicon.png);
 }
@@ -86,38 +79,35 @@ legend{
 #abicon{
   content: url(../img/abicon.png);
 }
-/* On mouse-over, add a grey background color */
+
 .button:hover input ~ .selector {
   background-color:var(--primary-lightBlue);
 }
-/* When the radio button is checked, add a blue background */
+
 .button input:checked ~ .selector {
   background-color: var(--primary-blue);
 }
-/* Create the indicator (the dot/circle - hidden when not checked) */
+
 .selector:after {
-  /* content: url(img/stretchingicon.png); */
   position: absolute;
   display: none;
 }
-/* Show the indicator (dot/circle) when checked */
+
 .button input:checked ~ .selector:after {
   display: block;
 }
 
-/* Style the indicator ( big X) */
 .button .selector:after {
  	top: 6px;
 	left: 22px;
 	width: 18px;
 	height: 18px;
   color: var(--secondary-white)
-
 }
+
 input{
 	margin-left:40px;
-  padding-left:40px;
-	
+  padding-left:40px;	
 }
 /* +++++++++++ End of Custom Radio Buttons +++++++++++++*/
 
