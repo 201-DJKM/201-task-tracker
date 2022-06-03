@@ -12,6 +12,8 @@
     max-width: 885px;
     display: flex; 
     margin-bottom: 50px;
+    height: fit-content;
+    padding-bottom: 10px;
   }
 
   h2 {
@@ -23,10 +25,8 @@
     text-align: center;
   }
 
-  #bio {
+  .bio {
     max-width: 885px;
-    max-height: 240px;
-    /* background-color: #014F86; */
     border-radius: 35%;
   }
   #name {
