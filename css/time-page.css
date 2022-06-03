@@ -3,6 +3,7 @@
   margin: 50px;
   min-height: 60vh;
 }
+
 fieldset{
   margin:75px 0px 25px 45px;
   display: flex;
@@ -13,11 +14,7 @@ legend{
   font-weight: 800;
   margin: 0px 0px 60px 66px;
 }
-
-
 /* +++++++++++ Start of Custom Radio Buttons +++++++++++++*/
-
-/* The container */
 .button {
   display: inline;
   position: relative;
@@ -33,13 +30,12 @@ legend{
   user-select: none;
 }
 
-/* Hide the browser's default radio button */
 .button input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
-/* Create a custom radio button */
+
 .selector {
   position: absolute;
   top:0px;
@@ -50,24 +46,24 @@ legend{
   border-radius: 5%;
   content: url(../img/timeicon.png);
 }
-/* On mouse-over, add a grey background color */
+
 .button:hover input ~ .selector {
   background-color:var(--primary-lightBlue);
 }
-/* When the radio button is checked, add a blue background */
+
 .button input:checked ~ .selector {
   background-color: var(--primary-blue);
 }
-/* Create the indicator (the dot/circle - hidden when not checked) */
+
 .selector:after {
   position: absolute;
   display: none;
 }
-/* Show the indicator (dot/circle) when checked */
+
 .button input:checked ~ .selector:after {
   display: block;
 }
-/* Style the indicator ( big X) */
+
 .button .selector:after {
  	top: 6px;
 	left: 22px;
@@ -75,10 +71,10 @@ legend{
 	height: 18px;
   color: var(--secondary-white)
 }
+
 input{
 	margin-left:40px;
-  padding-left:40px;
-	
+  padding-left:40px;	
 }
 /* +++++++++++ End of Custom Radio Buttons +++++++++++++*/
 
