@@ -27,9 +27,14 @@ If you enjoy your favorite TakeTen workout exercise sets over and over! Past wor
 
 - Custom Button CSS example provided by :  
   - https://www.w3schools.com/howto/howto_css_custom_checkbox.asp
-
-
-
+- Take Ten Logo provided by :
+  - looka.com
+- General resource documentation provided by :
+  - w3schools.com
+  - developer.mozilla.org
+- Image Resources provided by :
+  - Unsplash.com
+  - Unsplash Providers - dmitriy frantsev, kalen emsly, kelli dougal, kenrick mills, remi thorel  
 
 
 

@@ -31,7 +31,7 @@ h3:not(footer h3) {
   font-weight: 600;
   margin-top: 50px;
   color:var(--primary-darkBlue);
-  font-size: 18;
+  font-size: 18px;
   text-align: left;
 }
 

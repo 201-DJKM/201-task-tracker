@@ -26,7 +26,6 @@ min-height:50vh;
 
 }
 /* ++++++++ HEADER RULES ++++++++++++ */
-
 header {
   display:flex;
   justify-content: space-between;
@@ -34,6 +33,7 @@ header {
   padding: 0 1em 1em 0;
   color:var(--primary-darkBlue);
 }
+
 h1{
   display: none;
 }
@@ -70,10 +70,7 @@ header a:visited {
 header a:hover{
   text-decoration: underline 3px solid var(--primary-darkBlue);
 }
-
-
 /* ++++++++++++ FOOTER RULES +++++++++++++++ */
-
 footer{
   flex:none;
   display: grid;
@@ -84,9 +81,11 @@ footer{
   background-color: var(--primary-darkBlue);
   color: var(--secondary-white);
 }
+
 footer p{
   color:var(--secondary-white);
 }
+
 footer h3{
   color:var(--secondary-white);
 }
@@ -98,6 +97,7 @@ footer a{
 footer a:visited{
   color: var(--secondary-white);
 }
+
 footer a:hover{
   text-decoration:  underline 3px solid var(--secondary-white);
 }
@@ -105,6 +105,7 @@ footer a:hover{
 #footer-logo-section{
   grid-column: 1/2;
 }
+
 #footer-logo{
   margin: 20px;
 }
@@ -112,11 +113,13 @@ footer a:hover{
 #footer-company-section{
   grid-column: 2/3;
 }
+
 #footer-company-section h3, #footer-help-section h3{
   margin:10px;
   font-size:x-large;
   font-weight:600;
 }
+
 #footer-company-section li, #footer-help-section li{
   margin:10px;
 }
@@ -124,19 +127,23 @@ footer a:hover{
 #footer-help-section{
   grid-column: 3/4;
 }
+
 #footer-copyright-section{
   grid-row: 2/3;
   grid-column: 1/5;
 }
+
 hr{
   display: block;
   width:101%;
   margin: 25px 0px 25px -.5%;
 }
+
 #footer-copyright-section p:first-of-type{
   display:inline-flex;
   float:left;
 }
+
 #footer-copyright-section p:last-of-type{
   display: inline-flex;
   float:right;
