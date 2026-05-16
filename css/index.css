@@ -26,6 +26,7 @@ main{
 fieldset{
   margin:75px 0px 25px 45px;
   display: flex;
+  flex-direction: column;
 }
 
 legend{
