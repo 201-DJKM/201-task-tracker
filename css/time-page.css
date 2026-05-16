@@ -99,3 +99,23 @@ input{
   text-decoration: solid var(--secondary-white);
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  fieldset {
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  legend {
+    margin-left: 0;
+  }
+
+  .button {
+    margin-left: 80px;
+  }
+
+  #gen-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
