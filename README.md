@@ -19,6 +19,7 @@ If you enjoy your favorite TakeTen workout exercise sets over and over! Past wor
 ### Version History
 - Version 1.0.0: MVP (5/31/22)
 - Version 2.0.0: MVP Including 'My Workout' History Storage (6/2/22)
+- Version 2.1.0: Code quality revamp — 7 bug fixes across HTML validity, CSS, and JS (5/16/26)
 
 ### Requirements
 - None, TakeTen is a standard 'vanilla' JavaScript Web App with functionality on all web browsers!
