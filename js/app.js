@@ -145,11 +145,13 @@ function renderCurrWorkout() {
     workoutCard.removeChild(workoutCard.lastChild);
   }
   for (let i = 0; i < parsedWorkCard.numOfMovements; i++) {
+    let newLi = document.createElement('li');
+    workoutCard.appendChild(newLi);
     let newMovement = document.createElement('h3');
-    workoutCard.appendChild(newMovement);
+    newLi.appendChild(newMovement);
     newMovement.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0];
     let newSteps = document.createElement('p');
-    workoutCard.appendChild(newSteps);
+    newLi.appendChild(newSteps);
     newSteps.textContent = parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1];
     chosenArr.push([parsedWorkCard.bank[parsedWorkCard.movementArr[i]][0], parsedWorkCard.bank[parsedWorkCard.movementArr[i]][1]]);
   }
@@ -171,11 +173,13 @@ function renderWorkoutHistory() {
       for (let j = 0; j < workoutHistory[i].length; j++) {
         let newUl = document.createElement('ul');
         newArticle.appendChild(newUl);
+        let newLi = document.createElement('li');
+        newUl.appendChild(newLi);
         let newH3 = document.createElement('h3');
-        newUl.appendChild(newH3);
+        newLi.appendChild(newH3);
         newH3.textContent = workoutHistory[i][j][0];
         let newP = document.createElement('p');
-        newUl.appendChild(newP);
+        newLi.appendChild(newP);
         newP.textContent = workoutHistory[i][j][1];
       }
     }
@@ -185,8 +189,10 @@ function renderWorkoutHistory() {
     divWrapper.appendChild(newArticle);
     let newUl = document.createElement('ul');
     newArticle.appendChild(newUl);
+    let newLi = document.createElement('li');
+    newUl.appendChild(newLi);
     let newH3 = document.createElement('h3');
-    newUl.appendChild(newH3);
+    newLi.appendChild(newH3);
     newH3.textContent = 'You have no workout history to display';
   }
 }
