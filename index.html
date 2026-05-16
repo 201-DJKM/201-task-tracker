@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Take Ten — generate a quick workout in 10, 30, 45, or 60 minutes. No equipment needed.">
   <title>Take Ten</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
@@ -15,12 +16,14 @@
     <header>
       <a href="index.html"><img id="header-logo" src="img/taketenlogo.png" alt="Take Ten Logo"></a>
       <h1>Take Ten Workout Generator</h1>
-      <ul aria-label="Navigation List">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about-page.html">About</a></li>
-        <li><a a href="faq.html">FAQ</a></li>
-        <li id="link-myWorkouts"><a href="my-workouts.html">My Workouts</a></li>
-      </ul>
+      <nav aria-label="Navigation List">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-page.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li id="link-myWorkouts"><a href="my-workouts.html">My Workouts</a></li>
+        </ul>
+      </nav>
     </header>
 
     <section id="dq-section" aria-label="Daily Motivational Quote">
@@ -29,24 +32,24 @@
     <main id="main-content">
       <fieldset id="typeForm">
         <legend> What type of workout are you looking for today?</legend>
-        <label class="button" title="Stretching">Stretching
-          <input type="radio" checked="checked" name="radio" value="stretch">
+        <label class="button" title="Stretching" for="type-stretch">Stretching
+          <input type="radio" checked="checked" name="radio" value="stretch" id="type-stretch">
           <span class="selector" id="stretchicon" ></span>
         </label>
-        <label class="button" title="Strength">Strength Circuit
-          <input type="radio" name="radio" value="strength">
+        <label class="button" title="Strength" for="type-strength">Strength Circuit
+          <input type="radio" name="radio" value="strength" id="type-strength">
           <span class="selector" id="strengthicon" ></span>
         </label>
-        <label class="button" title="Abdominal">Ab Circuit
-          <input type="radio" name="radio" value="abs" >
+        <label class="button" title="Abdominal" for="type-abs">Ab Circuit
+          <input type="radio" name="radio" value="abs" id="type-abs">
           <span class="selector" id="abicon" ></span>
         </label>
-        <label class="button" title="Endurance">Endurance Circuit
-          <input type="radio" name="radio" value="endurance">
+        <label class="button" title="Endurance" for="type-endurance">Endurance Circuit
+          <input type="radio" name="radio" value="endurance" id="type-endurance">
           <span class="selector" id="enduranceicon"></span>
         </label>
       </fieldset>
-      <button id="next-btn" onclick="location.href='time-page.html'" type="button">Next</button>
+      <button id="next-btn" type="button">Next</button>
     </main>
 
     <footer>
@@ -77,6 +80,7 @@
       </section>
     </footer>
   </div>
+  <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

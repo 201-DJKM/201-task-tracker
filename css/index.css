@@ -9,7 +9,7 @@ main{
   min-height: 16em;
   width:100%;
   background-color: var(--secondary-grey);
-  background-size: auto;
+  background-size: cover;
   background-position: 50% 65%;
   background-repeat: no-repeat; 
 }
@@ -26,6 +26,7 @@ main{
 fieldset{
   margin:75px 0px 25px 45px;
   display: flex;
+  flex-direction: column;
 }
 
 legend{
@@ -120,10 +121,10 @@ input{
   width: 225px;
   font-size: 16px;
   font-weight: 600;
-  color: #06D6A0;
+  color: var(--secondary-green);
   border-radius: 30px;
-  border-color: #06D6A0;
-  background-color: #C1F5E7;
+  border-color: var(--secondary-green);
+  background-color: var(--secondary-green-light);
 }
 
 #next-btn:hover{
@@ -131,6 +132,26 @@ input{
   color: var(--secondary-white);
   text-decoration: solid var(--secondary-white);
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  fieldset {
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  legend {
+    margin-left: 0;
+  }
+
+  .button {
+    margin-left: 80px;
+  }
+
+  #next-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 
