@@ -110,6 +110,7 @@ function handleType(event) {
       localStorage.setItem('CurrentWO', workoutObjectJSON);
     }
   }
+  window.location.href = 'time-page.html';
 }
 
 function handleTime(event) {
