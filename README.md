@@ -27,17 +27,17 @@ If you enjoy your favorite TakeTen workout exercise sets over and over! Past wor
 
 ## Proposed Revamp Changes
 
-Audit conducted 2026-05-16. Changes are grouped by effort level. Items marked **done** have been applied on a revamp branch.
+Audit conducted 2026-05-16. Changes are grouped by effort level.
 
-### Quick Wins
+### Quick Wins — completed 2026-05-16
 
-1. **Fix `<a a href="faq.html">` typo on all pages** — duplicate `a` attribute on the FAQ nav link in every HTML file is invalid HTML.
-2. **Remove leftover `console.log` in `handleType`** — debug output left in production code (`app.js:105`).
-3. **Fix `font-size: 18` missing unit in `workout-page.css`** — unitless font-size is a CSS bug; browsers ignore it.
-4. **Replace hardcoded button colors with existing CSS variables** — `#06D6A0` and `#C1F5E7` are hardcoded in `index.css` and `workout-page.css` but the variables `--secondary-green` already exists in `style.css`.
-5. **Fix `grid-template-columns` comma syntax bug in `style.css`** — columns are separated by commas instead of spaces, which is invalid CSS. Change to `repeat(4, 1fr)`.
-6. **Fix `background-size: auto` on the quote section** — the hero image doesn't fill its container; `cover` is the correct value.
-7. **Add `<meta name="description">` to all pages** — missing on every page; helps SEO and social sharing previews.
+1. ✅ **Fix `<a a href="faq.html">` typo on all pages** (`revamp/qw-1-faq-typo`) — removed duplicate `a` attribute from the FAQ nav link in all 6 HTML files. The double attribute is invalid HTML and caused the link to be parsed incorrectly.
+2. ✅ **Remove leftover `console.log` in `handleType`** (`revamp/qw-2-console-log`) — deleted the debug `console.log(woType[i].value)` line from `app.js` that was printing the selected workout type to the browser console on every form interaction.
+3. ✅ **Fix `font-size: 18` missing unit in `workout-page.css`** (`revamp/qw-3-font-size-unit`) — added the missing `px` unit to the `h3` font-size rule. Unitless values (except for `0`) are invalid in CSS and silently ignored by browsers, so the heading size was falling back to the browser default.
+4. ✅ **Replace hardcoded button colors with CSS variables** (`revamp/qw-4-css-variables`) — replaced the magic hex values `#06D6A0` and `#C1F5E7` in `index.css` and `workout-page.css` with `var(--secondary-green)` and a newly added `var(--secondary-green-light)` variable in `style.css`. Colors are now defined in one place.
+5. ✅ **Fix `grid-template-columns` comma syntax bug in `style.css`** (`revamp/qw-5-grid-columns`) — changed `1fr,1fr,1fr,1fr` to `repeat(4, 1fr)`. Comma-separated values are invalid for `grid-template-columns`; the columns declaration was being silently ignored by the browser.
+6. ✅ **Fix `background-size: auto` on the quote section** (`revamp/qw-6-background-size`) — changed to `background-size: cover` in `index.css` so the hero image fills the quote banner instead of rendering at its natural size.
+7. ✅ **Add `<meta name="description">` to all pages** (`revamp/qw-7-meta-description`) — added a unique description tag to all 6 HTML pages. These are used by search engines and social sharing previews and were entirely absent.
 
 ### Moderate
 
