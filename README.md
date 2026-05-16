@@ -20,7 +20,7 @@ If you enjoy your favorite TakeTen workout exercise sets over and over! Past wor
 - Version 1.0.0: MVP (5/31/22)
 - Version 2.0.0: MVP Including 'My Workout' History Storage (6/2/22)
 - Version 2.1.0: Code quality revamp — 7 bug fixes across HTML validity, CSS, and JS (5/16/26)
-- Version 2.2.0: Accessibility and HTML validity pass — nav landmarks, FAQ structure, workout card rendering (5/17/26)
+- Version 2.2.0: Accessibility and HTML validity pass — nav landmarks, FAQ/workout card structure, label linkage, inline handler removal (5/17/26)
 
 ### Requirements
 - None, TakeTen is a standard 'vanilla' JavaScript Web App with functionality on all web browsers!
@@ -41,13 +41,13 @@ Audit conducted 2026-05-16. Changes are grouped by effort level.
 6. ✅ **Fix `background-size: auto` on the quote section** (`revamp/qw-6-background-size`) — changed to `background-size: cover` in `index.css` so the hero image fills the quote banner instead of rendering at its natural size.
 7. ✅ **Add `<meta name="description">` to all pages** (`revamp/qw-7-meta-description`) — added a unique description tag to all 6 HTML pages. These are used by search engines and social sharing previews and were entirely absent.
 
-### Moderate — in progress 2026-05-17
+### Moderate — completed 2026-05-17
 
 8. ✅ **Wrap all navigation lists in `<nav>`** (`revamp/mod-8-nav-landmark`) — wrapped the bare `<ul>` nav in `<nav aria-label="Navigation List">` across all 6 HTML pages, adding a proper landmark region for screen readers.
 9. ✅ **Fix invalid HTML in `faq.html` — `<h3>` directly inside `<ul>`** (`revamp/mod-9-faq-html`) — wrapped each Q&A `<h3>`/`<p>` pair in `<li>`; headings are not valid direct children of `<ul>`.
 10. ✅ **Fix invalid HTML in workout card rendering** (`revamp/mod-10-workout-card-html`) — added `<li>` wrappers in `renderCurrWorkout()`, `renderWorkoutHistory()`, and the empty-state fallback in `app.js`; `<h3>` and `<p>` are not valid direct children of `<ul>`.
-11. **Add `for`/`id` linkage to radio button labels** — custom radio buttons in `index.html` and `time-page.html` use `<label>` wrapping without `for`/`id` pairing; screen readers announce these inputs as unlabelled.
-12. **Move inline `onclick` handlers to `app.js`** — `index.html` has `onclick="location.href='time-page.html'"` on the Next button and `workout-page.html` has `onclick="location.href='#'"` on the Refresh button; these fire independently of the JS event listeners and create race conditions.
+11. ✅ **Add `for`/`id` linkage to radio button labels** (`revamp/mod-11-label-for-id`) — added explicit `for`/`id` pairing to all 8 radio inputs across `index.html` and `time-page.html`; implicit wrapping alone is not honoured by all screen readers.
+12. ✅ **Move inline `onclick` handlers to `app.js`** (`revamp/mod-12-remove-inline-onclick`) — removed `onclick` from the Next, Generate Workout, and Refresh buttons; navigation is now handled exclusively by the JS event listeners, eliminating the race condition.
 13. **Extract workout data arrays to `js/data.js`** — the four large arrays at the top of `app.js` make the file hard to read; moving them to a dedicated `data.js` separates data from logic.
 
 ### Deep Refactors
