@@ -22,54 +22,56 @@ let quoteTextArray = ['"Be excellent to each other. And... PARTY ON, DUDES!" - A
   '“Life isn\'t about waiting for the storm to pass, its about dancing in the rain.” - Greg Plitt'
 ];
 // *******************************************
-//             CONSTRUCTOR
+//             CLASS
 //********************************************
 
 let workoutHistory = [];
-function Workout(woType, woTime) {
-  this.type = woType;
-  this.bank = [];
-  this.selectedTime = woTime;
-  this.numOfMovements = 0;
-  this.getNumOfMoves();
-  this.movementArr = [];
-  this.bankChooser();
-  this.generateWorkoutMovements();
-  workoutHistory.push(this);
-}
-
-Workout.prototype.getNumOfMoves = function () {
-  if (this.selectedTime === '10') {
-    this.numOfMovements = 3;
-  } else if (this.selectedTime === '30') {
-    this.numOfMovements = 5;
-  } else if (this.selectedTime === '45') {
-    this.numOfMovements = 7;
-  } else {
-    this.numOfMovements = 10;
+class Workout {
+  constructor(woType, woTime) {
+    this.type = woType;
+    this.bank = [];
+    this.selectedTime = woTime;
+    this.numOfMovements = 0;
+    this.getNumOfMoves();
+    this.movementArr = [];
+    this.bankChooser();
+    this.generateWorkoutMovements();
+    workoutHistory.push(this);
   }
-};
 
-Workout.prototype.bankChooser = function () {
-  if (this.type === 'stretch') {
-    this.bank = stretchBankArr;
-  } else if (this.type === 'strength') {
-    this.bank = strengthBankArr;
-  } else if (this.type === 'abs') {
-    this.bank = absBankArr;
-  } else {
-    this.bank = enduranceBankArr;
-  }
-};
-
-Workout.prototype.generateWorkoutMovements = function () {
-  while (this.movementArr.length < this.numOfMovements) {
-    let randoNum = randNum(this.bank.length);
-    if (!this.movementArr.includes(randoNum)) {
-      this.movementArr.push(randoNum);
+  getNumOfMoves() {
+    if (this.selectedTime === '10') {
+      this.numOfMovements = 3;
+    } else if (this.selectedTime === '30') {
+      this.numOfMovements = 5;
+    } else if (this.selectedTime === '45') {
+      this.numOfMovements = 7;
+    } else {
+      this.numOfMovements = 10;
     }
   }
-};
+
+  bankChooser() {
+    if (this.type === 'stretch') {
+      this.bank = stretchBankArr;
+    } else if (this.type === 'strength') {
+      this.bank = strengthBankArr;
+    } else if (this.type === 'abs') {
+      this.bank = absBankArr;
+    } else {
+      this.bank = enduranceBankArr;
+    }
+  }
+
+  generateWorkoutMovements() {
+    while (this.movementArr.length < this.numOfMovements) {
+      let randoNum = randNum(this.bank.length);
+      if (!this.movementArr.includes(randoNum)) {
+        this.movementArr.push(randoNum);
+      }
+    }
+  }
+}
 //****************************************
 //            HELPER FUNCTIONS
 //****************************************
