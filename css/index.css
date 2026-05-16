@@ -9,7 +9,7 @@ main{
   min-height: 16em;
   width:100%;
   background-color: var(--secondary-grey);
-  background-size: auto;
+  background-size: cover;
   background-position: 50% 65%;
   background-repeat: no-repeat; 
 }
