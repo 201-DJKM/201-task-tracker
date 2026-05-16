@@ -22,6 +22,7 @@ If you enjoy your favorite TakeTen workout exercise sets over and over! Past wor
 - Version 2.1.0: Code quality revamp — 7 bug fixes across HTML validity, CSS, and JS (5/16/26)
 - Version 2.2.0: Accessibility and HTML validity pass — nav landmarks, FAQ/workout card structure, label linkage, inline handler removal (5/17/26)
 - Version 2.3.0: Moderate refactor complete — workout data extracted to js/data.js, separating data from logic (5/17/26)
+- Version 3.0.0: Full revamp complete — ES6 class, responsive mobile CSS, all 15 audit items resolved (5/17/26)
 
 ### Requirements
 - None, TakeTen is a standard 'vanilla' JavaScript Web App with functionality on all web browsers!
@@ -51,10 +52,10 @@ Audit conducted 2026-05-16. Changes are grouped by effort level.
 12. ✅ **Move inline `onclick` handlers to `app.js`** (`revamp/mod-12-remove-inline-onclick`) — removed `onclick` from the Next, Generate Workout, and Refresh buttons; navigation is now handled exclusively by the JS event listeners, eliminating the race condition.
 13. ✅ **Extract workout data arrays to `js/data.js`** (`revamp/mod-13-data-js`) — moved all four exercise bank arrays out of `app.js` into a new `js/data.js` file loaded before `app.js` in all 4 HTML pages; `app.js` now contains only logic.
 
-### Deep Refactors
+### Deep Refactors — completed 2026-05-17
 
-14. **Convert prototype-based `Workout` constructor to an ES6 `class`** — the `function Workout() {}` + `Workout.prototype.*` pattern is pre-ES6; a `class` is the natural next step at this curriculum level.
-15. **Add responsive mobile CSS** — fixed pixel margins (e.g. `margin-left: 150px` on radio buttons) and a fixed `width: 600px` on the workout card break on narrow screens; a media query pass would make the app usable on phones.
+14. ✅ **Convert prototype-based `Workout` constructor to an ES6 `class`** (`revamp/deep-14-es6-class`) — replaced `function Workout() {}` and three `Workout.prototype.*` assignments with a clean `class Workout` with `constructor` and method definitions; behaviour is identical.
+15. ✅ **Add responsive mobile CSS** (`revamp/deep-15-responsive-css`) — added `@media (max-width: 768px)` breakpoints to `style.css`, `index.css`, `time-page.css`, `workout-page.css`, `FAQ.css`, and `my-workouts.css`; fixed-pixel margins and `600px` widths now collapse to fluid layouts on narrow screens. Also fixed the `header > ul` selector broken by item 8's `<nav>` wrapper.
 
 ---
 
