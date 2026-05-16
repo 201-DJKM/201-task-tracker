@@ -21,6 +21,7 @@ If you enjoy your favorite TakeTen workout exercise sets over and over! Past wor
 - Version 2.0.0: MVP Including 'My Workout' History Storage (6/2/22)
 - Version 2.1.0: Code quality revamp — 7 bug fixes across HTML validity, CSS, and JS (5/16/26)
 - Version 2.2.0: Accessibility and HTML validity pass — nav landmarks, FAQ/workout card structure, label linkage, inline handler removal (5/17/26)
+- Version 2.3.0: Moderate refactor complete — workout data extracted to js/data.js, separating data from logic (5/17/26)
 
 ### Requirements
 - None, TakeTen is a standard 'vanilla' JavaScript Web App with functionality on all web browsers!
@@ -48,7 +49,7 @@ Audit conducted 2026-05-16. Changes are grouped by effort level.
 10. ✅ **Fix invalid HTML in workout card rendering** (`revamp/mod-10-workout-card-html`) — added `<li>` wrappers in `renderCurrWorkout()`, `renderWorkoutHistory()`, and the empty-state fallback in `app.js`; `<h3>` and `<p>` are not valid direct children of `<ul>`.
 11. ✅ **Add `for`/`id` linkage to radio button labels** (`revamp/mod-11-label-for-id`) — added explicit `for`/`id` pairing to all 8 radio inputs across `index.html` and `time-page.html`; implicit wrapping alone is not honoured by all screen readers.
 12. ✅ **Move inline `onclick` handlers to `app.js`** (`revamp/mod-12-remove-inline-onclick`) — removed `onclick` from the Next, Generate Workout, and Refresh buttons; navigation is now handled exclusively by the JS event listeners, eliminating the race condition.
-13. **Extract workout data arrays to `js/data.js`** — the four large arrays at the top of `app.js` make the file hard to read; moving them to a dedicated `data.js` separates data from logic.
+13. ✅ **Extract workout data arrays to `js/data.js`** (`revamp/mod-13-data-js`) — moved all four exercise bank arrays out of `app.js` into a new `js/data.js` file loaded before `app.js` in all 4 HTML pages; `app.js` now contains only logic.
 
 ### Deep Refactors
 
