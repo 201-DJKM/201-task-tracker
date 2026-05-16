@@ -102,7 +102,6 @@ function handleType(event) {
   let woType = document.getElementsByName('radio');
   for (let i = 0; i < woType.length; i++) {
     if (woType[i].checked) {
-      console.log(woType[i].value);
       let workoutType = woType[i].value;
       let workoutObject = {
         type: workoutType
